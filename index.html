@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Centre de Pilotage Financier - Dashboard</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="net-worth">
+            <h1>Mon Patrimoine Net</h1>
+            <span class="net-value">$ [Chiffre TOTAL : Actif - Passif]</span>
+            <span class="net-indicator success">↑ 1.25%</span>
+        </div>
+        <button class="sync-button"><i class="fas fa-sync-alt"></i> Synchroniser</button>
+    </header>
+
+    <div class="main-layout">
+        
+        <aside class="sidebar">
+            <nav class="main-nav">
+                <ul>
+                    <li><i class="fas fa-chart-line"></i> <a href="#">Dashboard</a> (actif)</li>
+                    <li><i class="fas fa-wallet"></i> <a href="#">Comptes</a></li>
+                    <li><i class="fas fa-hand-holding-usd"></i> <a href="#">Dettes & Stratégie</a></li>
+                    <li><i class="fas fa-piggy-bank"></i> <a href="#">Placements</a></li>
+                    <li><i class="fas fa-exchange-alt"></i> <a href="#">Transactions</a></li>
+                    <li><i class="fas fa-bullseye"></i> <a href="#">Objectifs</a></li>
+                </ul>
+            </nav>
+            <div class="quick-actions">
+                <h3>Actions Rapides</h3>
+                <button class="action-button primary"><i class="fas fa-money-check-alt"></i> Faire un Paiement</button>
+                <button class="action-button primary"><i class="fas fa-calendar-check"></i> Planifier un Virement</button>
+                <button class="action-button secondary"><i class="fas fa-plus"></i> Transaction Manuelle</button>
+            </div>
+        </aside>
+
+        <main class="content-grid">
+            
+            <section class="cashflow-section card">
+                <h2>Tendance de Cashflow (3 Mois)</h2>
+                <div class="placeholder-chart">Graphique Cashflow</div>
+                <div class="cashflow-metrics">
+                    Moyenne Cashflow/Mois : **$ [Chiffre]**
+                </div>
+            </section>
+
+            <section class="alerts-section card">
+                <h2>🔔 Paiements à Venir (7 Jours)</h2>
+                <ul>
+                    <li class="alert urgent"><i class="fas fa-exclamation-triangle"></i> Paiement Minimum Carte RBC dû le 12 Déc : **$125.00**</li>
+                    <li class="alert success"><i class="fas fa-check-circle"></i> Hypothèque Planifiée le 15 Déc : **$1,500.00** (Automatique)</li>
+                    <li class="alert info"><i class="fas fa-info-circle"></i> Hydro-Québec dû le 19 Déc : **$88.50**</li>
+                </ul>
+                <button class="view-all-button">Voir toutes les alertes</button>
+            </section>
+
+            <section class="advice-section card">
+                <h2>💡 Astuce d'Optimisation</h2>
+                <p>Votre dette sur la Carte VISA [XXXX-1234] est à 19.99%. Payez <strong>$500 de plus</strong> sur cette carte ce mois-ci pour économiser <strong>$83</strong> en intérêts et accélérer l'objectif Avalanche.</p>
+                <button class="action-button primary-green"><i class="fas fa-calculator"></i> Planifier le paiement suggéré</button>
+            </section>
+
+            <section class="credit-section card">
+                <h2>Statut de Crédit <i class="fas fa-shield-alt"></i></h2>
+                <div class="credit-score">
+                    Cote Actuelle : **758** <span class="badge excellent">Excellent</span>
+                </div>
+                <p class="credit-detail">Objectif : Atteindre **780** d'ici fin 2026.</p>
+                <p class="credit-detail">Utilisation du Crédit : **12%** (<span class="success">↓ 2%</span> vs dernier mois)</p>
+            </section>
+
+        </main>
+    </div>
+
+    </body>
+</html>
