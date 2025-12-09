@@ -3,21 +3,21 @@
 /* ==================================== */
 :root {
     /* --- Couleurs du Thème --- */
-    --color-primary: #007BFF;       /* Bleu vif pour les actions/liens */
-    --color-secondary: #00CC78;     /* Vert vif pour les gains et succès */
-    --color-background: #F4F7F9;    /* Arrière-plan général très clair */
-    --color-text: #2C3E50;          /* Texte principal (Bleu marine/foncé) */
-    --color-card-bg: #FFFFFF;       /* Fond des cartes (Blanc) */
+    --color-primary: #007BFF;
+    --color-secondary: #00CC78;
+    --color-background: #F4F7F9;
+    --color-text: #2C3E50;
+    --color-card-bg: #FFFFFF;
     
     /* --- Indicateurs de Statut --- */
-    --color-success: #28A745;       /* Vert foncé pour OK/Succès */
-    --color-alert: #DC3545;         /* Rouge pour les dettes/problèmes */
-    --color-info: #FFC107;          /* Jaune/Orange pour les informations/avertissements */
+    --color-success: #28A745;
+    --color-alert: #DC3545;
+    --color-info: #FFC107;
 }
 
 /* Réinitialisation de base */
 * {
-    box-sizing: border-box; /* S'assure que le padding et la bordure ne changent pas la taille totale */
+    box-sizing: border-box; 
 }
 
 body {
@@ -36,8 +36,8 @@ body {
     /* Utilisation de Flexbox pour que la sidebar et le contenu se divisent l'espace */
     display: flex; 
     width: 100%;
-    max-width: 1400px; /* Limite la largeur du contenu sur les très grands écrans */
-    margin: 0 auto; /* C'est ce qui centre l'ensemble du contenu ! */
+    max-width: 1400px; /* Limite la largeur du contenu */
+    margin: 0 auto; /* C'EST LA CLÉ DU CENTRAGE */
 }
 
 .content-grid {
@@ -47,6 +47,7 @@ body {
     gap: 25px; /* Espacement entre les cartes */
     padding: 25px;
     padding-top: 10px;
+    min-width: 0; /* 🛑 CORRECTION CLÉ 1 : Empêche le débordement de la grille */
 }
 
 /* ==================================== */
@@ -61,7 +62,6 @@ body {
     border-bottom: 1px solid #EAECEE;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     width: 100%;
-    /* Le header doit couvrir toute la largeur, même si .main-layout est centré */
     margin-bottom: 0; 
 }
 
@@ -79,17 +79,15 @@ body {
     border-radius: 4px;
 }
 
-
 /* ==================================== */
 /* 4. SIDEBAR (NAVIGATION)              */
 /* ==================================== */
 .sidebar {
     background-color: var(--color-card-bg); 
     padding: 20px;
-    /* Règle importante pour que la sidebar soit toujours à gauche de .main-layout */
     flex-shrink: 0; 
     width: 250px;
-    min-height: 100vh; /* S'assure qu'elle descend au moins jusqu'au bas de l'écran */
+    min-height: 100vh;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05); 
     border-right: 1px solid #EAECEE;
 }
@@ -141,6 +139,7 @@ body {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); 
     border: 1px solid #DCE1E7; 
     height: fit-content; /* S'adapte au contenu */
+    margin: 0; /* 🛑 CORRECTION CLÉ 2 : Supprime les marges de décalage */
 }
 
 h2 {
