@@ -1,108 +1,131 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Centre de Pilotage Financier - Dashboard</title>
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Centre de Pilotage Financier - Dashboard</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-    <header class="header">
-        <div class="net-worth">
-            <h1>Mon Patrimoine Net</h1>
-            <span class="net-value">$ [Chiffre TOTAL : Actif - Passif]</span>
-            <span class="net-indicator success">↑ 1.25%</span>
-        </div>
-        <button class="sync-button"><i class="fas fa-sync-alt"></i> Synchroniser</button>
-    </header>
+    <header class="header">
+        <div class="net-worth">
+                        <span>Valeur Nette Totale (Simulée)</span>
+            <h1 class="net-value primary-color">$ 71,299.60</h1>
+            <span class="net-indicator success">↑ 1.25%</span>
+        </div>
+                <a href="comptes.html" class="sync-button"><i class="fas fa-sync-alt"></i> Dernière Synchro : Aujourd'hui</a>
+    </header>
 
-    <div class="main-layout">
-        
-        <aside class="sidebar">
-            <nav class="main-nav">
-                <ul>
-                    <li><i class="fas fa-chart-line"></i> <a href="#">Dashboard</a> (actif)</li>
-                    <li><i class="fas fa-wallet"></i> <a href="#">Comptes</a></li>
-                    <li><i class="fas fa-hand-holding-usd"></i> <a href="#">Dettes & Stratégie</a></li>
-                    <li><i class="fas fa-piggy-bank"></i> <a href="#">Placements</a></li>
-                    <li><i class="fas fa-exchange-alt"></i> <a href="#">Transactions</a></li>
-                    <li><i class="fas fa-bullseye"></i> <a href="#">Objectifs</a></li>
-                </ul>
-            </nav>
-            <div class="quick-actions">
-                <h3>Actions Rapides</h3>
-                <button class="action-button primary"><i class="fas fa-money-check-alt"></i> Faire un Paiement</button>
-                <button class="action-button primary"><i class="fas fa-calendar-check"></i> Planifier un Virement</button>
-                <button class="action-button secondary"><i class="fas fa-plus"></i> Transaction Manuelle</button>
-            </div>
-        </aside>
+    <div class="main-layout">
+        
+        <aside class="sidebar">
+            <nav class="main-nav">
+                <ul>
+                    <li><i class="fas fa-chart-line"></i> <a href="#">Dashboard</a> (actif)</li>
+                    <li><i class="fas fa-wallet"></i> <a href="comptes.html">Comptes</a></li>
+                    <li><i class="fas fa-hand-holding-usd"></i> <a href="#">Dettes & Stratégie</a></li>
+                    <li><i class="fas fa-piggy-bank"></i> <a href="#">Placements</a></li>
+                    <li><i class="fas fa-exchange-alt"></i> <a href="#">Transactions</a></li>
+                    <li><i class="fas fa-bullseye"></i> <a href="#">Objectifs</a></li>
+                </ul>
+            </nav>
+            <div class="quick-actions">
+                <h3>Actions Rapides</h3>
+                <button class="action-button primary"><i class="fas fa-money-check-alt"></i> Faire un Paiement</button>
+                <button class="action-button primary"><i class="fas fa-calendar-check"></i> Planifier un Virement</button>
+                <button class="action-button secondary"><i class="fas fa-plus"></i> Transaction Manuelle</button>
+            </div>
+        </aside>
 
-        <main class="content-grid">
-            
-            <section class="net-result-card card" style="grid-column: 1 / 2;">
-    <h2>Résultat Net du Mois (Cashflow)</h2>
-    <div style="display: flex; justify-content: space-around; text-align: center;">
-        <div>
-            <i class="fas fa-plus-circle fa-2x success"></i> 
-            <h3>Revenus Total</h3>
-            <p style="font-size: 24px; font-weight: bold; color: var(--color-primary);">$ [X,XXX.XX]</p>
-        </div>
-        <div>
-            <i class="fas fa-minus-circle fa-2x urgent"></i> 
-            <h3>Dépenses Total</h3>
-            <p style="font-size: 24px; font-weight: bold; color: var(--color-primary);">$ [Y,YYY.YY]</p>
-        </div>
-    </div>
-    <h3 style="text-align: center; margin-top: 15px;">
-        Revenu Disponible Net : 
-        <span style="color: var(--color-secondary); font-size: 28px;">$ [Z,ZZZ.ZZ]</span>
-    </h3>
-</section>
-
-<section class="optimization-metrics card" style="grid-column: 1 / 2; margin-top: 20px;">
-    <h2>Métrique d'Optimisation : Taux d'Épargne</h2>
-    <div style="display: flex; justify-content: space-between; align-items: center;">
-        <div style="text-align: center; flex-grow: 1;">
-            <i class="fas fa-percent fa-3x info"></i>
-            <p style="font-size: 36px; font-weight: bold; color: var(--color-info); margin-top: 10px;">[XX]%</p>
-        </div>
-        <div style="flex-grow: 2; font-size: 14px; padding-left: 20px;">
-            <p>**Objectif :** Atteindre 20%</p>
-            <p>**Calcul :** (Épargne + Placements) / Revenus nets</p>
-            <p style="color: var(--color-secondary); font-weight: bold;">Le meilleur indicateur de votre santé financière !</p>
-        </div>
-    </div>
-</section>
-
-            <section class="alerts-section card">
-                <h2>🔔 Paiements à Venir (7 Jours)</h2>
-                <ul>
-                    <li class="alert urgent"><i class="fas fa-exclamation-triangle"></i> Paiement Minimum Carte RBC dû le 12 Déc : **$125.00**</li>
-                    <li class="alert success"><i class="fas fa-check-circle"></i> Hypothèque Planifiée le 15 Déc : **$1,500.00** (Automatique)</li>
-                    <li class="alert info"><i class="fas fa-info-circle"></i> Hydro-Québec dû le 19 Déc : **$88.50**</li>
-                </ul>
-                <button class="view-all-button">Voir toutes les alertes</button>
-            </section>
-
-            <section class="advice-section card">
-                <h2>💡 Astuce d'Optimisation</h2>
-                <p>Votre dette sur la Carte VISA [XXXX-1234] est à 19.99%. Payez <strong>$500 de plus</strong> sur cette carte ce mois-ci pour économiser <strong>$83</strong> en intérêts et accélérer l'objectif Avalanche.</p>
-                <button class="action-button primary-green"><i class="fas fa-calculator"></i> Planifier le paiement suggéré</button>
-            </section>
-
-            <section class="credit-section card">
-                <h2>Statut de Crédit <i class="fas fa-shield-alt"></i></h2>
-                <div class="credit-score">
-                    Cote Actuelle : **758** <span class="badge excellent">Excellent</span>
+        <main class="content-grid">
+            
+            <section class="net-result-card card" style="grid-column: 1 / 2;">
+                <h2>Résultat Net du Mois (Cashflow)</h2>
+                <div style="display: flex; justify-content: space-around; text-align: center;">
+                    <div>
+                        <i class="fas fa-plus-circle fa-2x success"></i> 
+                        <h3>Revenus Total</h3>
+                        <p style="font-size: 24px; font-weight: bold; color: var(--color-primary);">$ 3,100.00</p>
+                    </div>
+                    <div>
+                        <i class="fas fa-minus-circle fa-2x urgent"></i> 
+                        <h3>Dépenses Total</h3>
+                        <p style="font-size: 24px; font-weight: bold; color: var(--color-primary);">$ 2,200.00</p>
+                    </div>
                 </div>
-                <p class="credit-detail">Objectif : Atteindre **780** d'ici fin 2026.</p>
-                <p class="credit-detail">Utilisation du Crédit : **12%** (<span class="success">↓ 2%</span> vs dernier mois)</p>
+                <h3 style="text-align: center; margin-top: 15px;">
+                    Revenu Disponible Net : 
+                    <span style="color: var(--color-secondary); font-size: 28px;">$ 900.00</span>
+                </h3>
             </section>
 
-        </main>
-    </div>
+            <section class="accounts-summary card" style="grid-column: 2 / 3;">
+                <h2>Résumé des Comptes et Placements</h2>
+                <ul class="account-list" style="list-style: none; padding: 0;">
+                    <li style="border-bottom: 1px solid #ECF0F1; padding: 10px 0;">
+                        <span style="font-weight: bold;"><i class="fas fa-coins success"></i> Compte Chèques TD</span>
+                        <span style="float: right; font-weight: bold; color: var(--color-secondary);">$ 1,850.50</span>
+                    </li>
+                    <li style="border-bottom: 1px solid #ECF0F1; padding: 10px 0;">
+                        <span style="font-weight: bold;"><i class="fas fa-piggy-bank success"></i> Compte Épargne TD</span>
+                        <span style="float: right; font-weight: bold; color: var(--color-secondary);">$ 15,200.00</span>
+                    </li>
+                    <li style="border-bottom: 1px solid #ECF0F1; padding: 10px 0;">
+                        <span style="font-weight: bold;"><i class="fas fa-chart-line success"></i> Desjardins (Placements REER)</span>
+                        <span style="float: right; font-weight: bold; color: var(--color-secondary);">$ 55,000.00</span>
+                    </li>
+                    <li style="padding: 10px 0;">
+                        <span style="font-weight: bold;"><i class="fas fa-credit-card alert"></i> Carte VISA TD</span>
+                        <span style="float: right; font-weight: bold; color: var(--color-alert);">- $ 750.90</span>
+                    </li>
+                </ul>
+                <a href="comptes.html" class="view-all-button">Gérer les connexions et voir les détails</a>
+            </section>
+            
+            <section class="optimization-metrics card" style="grid-column: 1 / 2; margin-top: 20px;">
+                <h2>Métrique d'Optimisation : Taux d'Épargne</h2>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div style="text-align: center; flex-grow: 1;">
+                        <i class="fas fa-percent fa-3x info"></i>
+                        <p style="font-size: 36px; font-weight: bold; color: var(--color-info); margin-top: 10px;">[29]%</p>
+                    </div>
+                    <div style="flex-grow: 2; font-size: 14px; padding-left: 20px;">
+                        <p>**Objectif :** Atteindre 20%</p>
+                        <p>**Calcul :** (Épargne + Placements) / Revenus nets</p>
+                        <p style="color: var(--color-secondary); font-weight: bold;">Le meilleur indicateur de votre santé financière !</p>
+                    </div>
+                </div>
+            </section>
 
-    </body>
+            <section class="alerts-section card" style="grid-column: 2 / 3;">
+                <h2>🔔 Paiements à Venir (7 Jours)</h2>
+                <ul>
+                    <li class="alert urgent"><i class="fas fa-exclamation-triangle"></i> Paiement Minimum Carte RBC dû le 12 Déc : **$125.00**</li>
+                    <li class="alert success"><i class="fas fa-check-circle"></i> Hypothèque Planifiée le 15 Déc : **$1,500.00** (Automatique)</li>
+                    <li class="alert info"><i class="fas fa-info-circle"></i> Hydro-Québec dû le 19 Déc : **$88.50**</li>
+                </ul>
+                <button class="view-all-button">Voir toutes les alertes</button>
+            </section>
+
+            <section class="advice-section card" style="grid-column: 1 / 2;">
+                <h2>💡 Astuce d'Optimisation</h2>
+                <p>Votre dette sur la **Carte VISA TD** est à 19.99%. Payez <strong>$500 de plus</strong> sur cette carte ce mois-ci pour économiser <strong>$83</strong> en intérêts et accélérer l'objectif Avalanche.</p>
+                <button class="action-button primary-green"><i class="fas fa-calculator"></i> Planifier le paiement suggéré</button>
+            </section>
+
+            <section class="credit-section card" style="grid-column: 2 / 3;">
+                <h2>Statut de Crédit <i class="fas fa-shield-alt"></i></h2>
+                <div class="credit-score">
+                    Cote Actuelle : **758** <span class="badge excellent">Excellent</span>
+                </div>
+                <p class="credit-detail">Objectif : Atteindre **780** d'ici fin 2026.</p>
+                <p class="credit-detail">Utilisation du Crédit : **12%** (<span class="success">↓ 2%</span> vs dernier mois)</p>
+            </section>
+
+        </main>
+    </div>
+
+    </body>
 </html>
