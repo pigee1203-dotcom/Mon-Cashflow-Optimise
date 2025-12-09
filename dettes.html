@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dettes & Stratégie - Mon Centre de Pilotage Financier</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    </head>
+<body>
+
+    <header class="header">
+        <div class="net-worth">
+            <h1>Module : Dettes & Stratégie</h1>
+            <span class="net-value">Votre feuille de route pour l'indépendance financière</span>
+        </div>
+        <a href="index.html" class="sync-button"><i class="fas fa-arrow-left"></i> Retour Dashboard</a>
+    </header>
+
+    <div class="main-layout">
+        
+        <aside class="sidebar">
+            <nav class="main-nav">
+                <ul>
+                    <li><i class="fas fa-chart-line"></i> <a href="index.html">Dashboard</a></li>
+                    <li><i class="fas fa-wallet"></i> <a href="#">Comptes</a></li>
+                    <li><i class="fas fa-hand-holding-usd"></i> <a href="#" class="active-link">Dettes & Stratégie</a> (actif)</li>
+                    <li><i class="fas fa-piggy-bank"></i> <a href="#">Placements</a></li>
+                    </ul>
+            </nav>
+        </aside>
+
+        <main class="content-grid">
+            
+            <section class="debt-summary card" style="grid-column: 1 / 3;">
+                <div style="display: flex; justify-content: space-around; text-align: center;">
+                    <div><i class="fas fa-money-bill-wave fa-2x info"></i> <h3>Total Dû</h3><p style="font-size: 24px; font-weight: bold; color: var(--color-alert);">$ [XXX,XXX.XX]</p></div>
+                    <div><i class="fas fa-percent fa-2x info"></i> <h3>Taux Moyen Pondéré</h3><p style="font-size: 24px; font-weight: bold; color: var(--color-info);">[X.XX]%</p></div>
+                    <div><i class="fas fa-calendar-alt fa-2x info"></i> <h3>Paiement Global Min.</h3><p style="font-size: 24px; font-weight: bold; color: var(--color-primary);">$ [X,XXX.XX]/Mois</p></div>
+                </div>
+            </section>
+            
+            <section class="debt-table card" style="grid-column: 1 / 3;">
+                <h2>Vos Dettes Détaillées</h2>
+                <table style="width: 100%; border-collapse: collapse; text-align: left;">
+                    <thead>
+                        <tr style="background-color: #ECF0F1;">
+                            <th style="padding: 10px;">Dette</th>
+                            <th style="padding: 10px;">Solde</th>
+                            <th style="padding: 10px;">Taux (%)</th>
+                            <th style="padding: 10px;">Paiement Min.</th>
+                            <th style="padding: 10px;">Priorité</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td style="padding: 10px;">Carte Visa RBC (19.99%)</td><td style="padding: 10px;">$ 8,500.00</td><td style="padding: 10px; color: var(--color-alert); font-weight: bold;">19.99</td><td style="padding: 10px;">$ 170.00</td><td style="padding: 10px;" class="urgent">#1 (Avalanche)</td></tr>
+                        <tr><td style="padding: 10px;">Prêt Auto (4.5%)</td><td style="padding: 10px;">$ 15,000.00</td><td style="padding: 10px; color: var(--color-secondary);">4.50</td><td style="padding: 10px;">$ 350.00</td><td style="padding: 10px;">#3</td></tr>
+                        <tr><td style="padding: 10px;">Marge de Crédit (8.5%)</td><td style="padding: 10px;">$ 3,000.00</td><td style="padding: 10px; color: var(--color-alert);">8.50</td><td style="padding: 10px;">$ 50.00</td><td style="padding: 10px;">#2</td></tr>
+                        </tbody>
+                </table>
+                <p style="margin-top: 20px; font-size: 12px; color: #95A5A6;">* Le champ Priorité est calculé selon la stratégie choisie (Avalanche ou Snowball).</p>
+            </section>
+            
+            <section class="simulator card" style="grid-column: 1 / 2;">
+                <h2>Stratégie Recommandée : Avalanche (Taux > Solde)</h2>
+                <p style="font-weight: bold; color: var(--color-secondary);">Économies d'intérêts : $ [X,XXX.XX] </p>
+                <p><strong>Focus :</strong> Vous payez en priorité la dette avec le **taux d'intérêt le plus élevé** (ici, la Carte Visa RBC à 19.99%) pour minimiser les coûts totaux.</p>
+                <button class="action-button primary-green" style="width: 100%;">Mettre la stratégie AVALANCHE en place</button>
+            </section>
+
+            <section class="simulator card" style="grid-column: 2 / 3;">
+                <h2>Simuler : Snowball (Solde < Taux)</h2>
+                <p style="font-weight: bold;">Économies d'intérêts : $ [Y,YYY.YY] </p>
+                <p><strong>Focus :</strong> Vous payez en priorité la **plus petite dette** (ici, la Marge de Crédit à $3,000) pour créer un élan psychologique rapide.</p>
+                <button class="action-button secondary" style="width: 100%;">Simuler la stratégie SNOWBALL</button>
+            </section>
+
+            <section class="projection-graph card" style="grid-column: 1 / 3; margin-top: 20px;">
+                <h2>Projection : Libération de vos Dettes</h2>
+                <div class="placeholder-chart" style="height: 250px;">
+                    
+
+[Image of a line graph]
+ Courbe de projection de la dette restante (Avalanche vs Snowball)
+                </div>
+                <p style="text-align: center; margin-top: 15px;">**Date de fin estimée (Avalanche) :** Février 2028</p>
+            </section>
+        
+        </main>
+    </div>
+
+</body>
+</html>
