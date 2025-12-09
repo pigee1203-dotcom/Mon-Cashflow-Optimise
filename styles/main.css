@@ -12,7 +12,7 @@
     /* --- Indicateurs de Statut --- */
     --color-success: #28A745;
     --color-alert: #DC3545;
-    --color-info: #FFC107;
+    --color-info: #FFC107; /* Jaune/Orange pour l'information ou les conseils */
 }
 
 /* Réinitialisation de base */
@@ -103,39 +103,38 @@ body {
 .main-nav ul li {
     display: flex;
     align-items: center;
-    margin-bottom: 8px; /* Augmenté légèrement pour les pastilles */
+    margin-bottom: 8px; 
 }
 
-/* NOUVEAUX STYLES POUR L'EFFET PASTILLE VITRE */
+/* STYLES EFFET PASTILLE VITRE */
 .main-nav a {
     text-decoration: none;
     color: var(--color-text);
-    padding: 10px 15px; /* Augmente le padding horizontal pour l'effet pastille */
+    padding: 10px 15px; 
     display: block;
-    border-radius: 20px; /* Bords très arrondis pour l'effet pastille */
+    border-radius: 20px; 
     transition: all 0.2s ease-in-out;
     font-weight: 600;
     flex-grow: 1;
 
     /* Effet "Vitre" (Glassy) */
-    background-color: rgba(255, 255, 255, 0.5); /* Fond blanc semi-transparent */
-    backdrop-filter: blur(5px); /* Flou d'arrière-plan pour l'effet verre */
+    background-color: rgba(255, 255, 255, 0.5); 
+    backdrop-filter: blur(5px); 
     
     /* Effet Glossy (Neomorphisme doux) */
     box-shadow: 
-        3px 3px 6px rgba(0, 0, 0, 0.1), /* Ombre extérieure douce */
-        -3px -3px 6px rgba(255, 255, 255, 0.6); /* Lumière intérieure douce */
+        3px 3px 6px rgba(0, 0, 0, 0.1), 
+        -3px -3px 6px rgba(255, 255, 255, 0.6); 
 }
 
 /* Changement de couleur au survol (hover) */
 .main-nav a:hover, .main-nav .active-link {
-    background-color: rgba(255, 255, 255, 0.8); /* Moins transparent au survol */
+    background-color: rgba(255, 255, 255, 0.8); 
     color: var(--color-primary); 
-    /* Ombre un peu plus prononcée au survol */
     box-shadow: 
         4px 4px 8px rgba(0, 0, 0, 0.15), 
         -4px -4px 8px rgba(255, 255, 255, 0.8);
-    transform: translateY(-1px); /* Petit effet de soulèvement */
+    transform: translateY(-1px); 
 }
 
 .main-nav i {
@@ -164,7 +163,7 @@ body {
     border-radius: 12px; 
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); 
     border: 1px solid #DCE1E7; 
-    height: fit-content; /* S'adapte au contenu */
+    height: fit-content; 
     margin: 0; 
 }
 
@@ -269,10 +268,10 @@ h2 {
     /* Le 'main-layout' devient un simple bloc pour laisser plus de place */
     .main-layout {
         display: block;
-        max-width: 900px; /* Réduit la largeur pour que les colonnes tiennent */
+        max-width: 900px; 
     }
 
-    /* La sidebar prend maintenant toute la largeur et est centrée */
+    /* La sidebar prend toute la largeur */
     .sidebar {
         width: 100%;
         min-height: auto;
@@ -284,13 +283,39 @@ h2 {
     /* On force le contenu de la grille à rester sur 2 colonnes */
     .content-grid {
         grid-template-columns: repeat(2, 1fr); 
-        padding: 10px 25px 25px 25px; /* Ajuste le padding après la sidebar */
+        padding: 10px 25px 25px 25px; 
     }
 }
 
 /* Si l'écran est très petit, on revient à 1 colonne */
 @media (max-width: 600px) {
     .content-grid {
-        grid-template-columns: 1fr; /* Une seule colonne pour les mobiles */
+        grid-template-columns: 1fr; 
     }
+}
+
+/* ==================================== */
+/* 8. STYLES SPÉCIFIQUES AUX OUTILS DYNAMIQUES */
+/* ==================================== */
+
+.daily-advice-card {
+    /* Style pour accentuer le côté "Temps réel / Alerte" */
+    border: 2px solid var(--color-info); 
+}
+
+.daily-advice-card h2 {
+    color: var(--color-info); 
+}
+
+/* Style spécifique pour la zone de conseil (pour le changement dynamique) */
+.daily-advice-card .advice-box {
+    background-color: rgba(255, 193, 7, 0.1); /* Utiliser une version très pâle du jaune */
+    border-left: 5px solid var(--color-info); /* Ligne verticale jaune */
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.daily-advice-card .advice-box p {
+    margin: 0;
 }
