@@ -23,7 +23,7 @@
         <aside class="sidebar">
             <nav class="main-nav">
                 <ul>
-                    <li><i class="fas fa-chart-line"></i> <a href="#">Dashboard</a></li>
+                    <li><i class="fas fa-chart-line"></i> <a href="#">Dashboard</a></li> 
                     <li><i class="fas fa-wallet"></i> <a href="comptes.html">Comptes</a></li>
                     <li><i class="fas fa-hand-holding-usd"></i> <a href="#">Dettes & Stratégie</a></li>
                     <li><i class="fas fa-piggy-bank"></i> <a href="#">Placements</a></li>
@@ -107,6 +107,35 @@
                     <li class="alert info"><i class="fas fa-info-circle"></i> Hydro-Québec dû le 19 Déc : **$88.50**</li>
                 </ul>
                 <button class="view-all-button">Voir toutes les alertes</button>
+            </section>
+            
+            <section class="expense-breakdown-card card">
+                <h2>📈 Ventilation des Dépenses (Ce Mois)</h2>
+                <div class="chart-placeholder" style="text-align: center; padding: 20px;">
+                    <i class="fas fa-chart-pie fa-5x" style="color: #CED4DA; margin-bottom: 10px;"></i>
+                    <p style="font-style: italic;">(Graphique des Catégories de Dépenses)</p>
+                </div>
+                <ul class="top-expenses" style="list-style: none; padding: 0; font-size: 14px;">
+                    <li style="display: flex; justify-content: space-between; padding: 5px 0;"><span><i class="fas fa-home"></i> Logement</span> <strong>$ 850.00</strong></li>
+                    <li style="display: flex; justify-content: space-between; padding: 5px 0;"><span><i class="fas fa-shopping-cart"></i> Alimentation</span> <strong>$ 400.00</strong></li>
+                    <li style="display: flex; justify-content: space-between; padding: 5px 0;"><span><i class="fas fa-gas-pump"></i> Transport</span> <strong>$ 250.00</strong></li>
+                </ul>
+                <a href="#" class="view-all-button">Analyser toutes les transactions</a>
+            </section>
+
+            <section class="emergency-fund-card card">
+                <h2>🛡️ Fonds d'Urgence</h2>
+                <div style="text-align: center; padding: 10px 0;">
+                    <i class="fas fa-shield-alt fa-3x success"></i>
+                    <p style="font-size: 18px; margin: 10px 0 5px 0;">Couverture Actuelle :</p>
+                    <p style="font-size: 48px; font-weight: bold; color: var(--color-secondary);">3.8 Mois</p>
+                </div>
+                <p style="text-align: center; font-size: 14px;">
+                    Objectif : **6 Mois de Dépenses** ($ 13,200.00)
+                </p>
+                <div class="progress-bar-placeholder" style="height: 10px; background-color: #E9ECEF; border-radius: 5px; margin-top: 15px;">
+                    <div style="width: 63%; height: 100%; background-color: var(--color-secondary); border-radius: 5px;"></div>
+                </div>
             </section>
 
             <section class="advice-section card">
