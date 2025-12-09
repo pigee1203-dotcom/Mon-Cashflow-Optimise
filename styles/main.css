@@ -47,8 +47,8 @@ body {
     gap: 25px; /* Espacement entre les cartes */
     padding: 25px;
     padding-top: 10px;
-    min-width: 0; /* CORRECTION 1 : Empêche le débordement */
-    grid-auto-rows: minmax(min-content, max-content); /* CORRECTION 2 : Remplissage des lignes pour éviter les vides */
+    min-width: 0; /* Empêche le débordement */
+    grid-auto-rows: minmax(min-content, max-content); /* Remplissage des lignes pour éviter les vides */
 }
 
 /* ==================================== */
@@ -99,27 +99,43 @@ body {
     margin-bottom: 30px;
 }
 
-/* CORRECTION 3 : Alignement vertical de l'icône et du texte */
+/* Alignement vertical de l'icône et du texte */
 .main-nav ul li {
     display: flex;
     align-items: center;
-    margin-bottom: 5px;
+    margin-bottom: 8px; /* Augmenté légèrement pour les pastilles */
 }
 
+/* NOUVEAUX STYLES POUR L'EFFET PASTILLE VITRE */
 .main-nav a {
     text-decoration: none;
     color: var(--color-text);
-    padding: 10px;
+    padding: 10px 15px; /* Augmente le padding horizontal pour l'effet pastille */
     display: block;
-    border-radius: 6px;
-    transition: background-color 0.2s;
-    font-weight: 500;
-    flex-grow: 1; /* Permet au lien de prendre l'espace restant à droite */
+    border-radius: 20px; /* Bords très arrondis pour l'effet pastille */
+    transition: all 0.2s ease-in-out;
+    font-weight: 600;
+    flex-grow: 1;
+
+    /* Effet "Vitre" (Glassy) */
+    background-color: rgba(255, 255, 255, 0.5); /* Fond blanc semi-transparent */
+    backdrop-filter: blur(5px); /* Flou d'arrière-plan pour l'effet verre */
+    
+    /* Effet Glossy (Neomorphisme doux) */
+    box-shadow: 
+        3px 3px 6px rgba(0, 0, 0, 0.1), /* Ombre extérieure douce */
+        -3px -3px 6px rgba(255, 255, 255, 0.6); /* Lumière intérieure douce */
 }
 
+/* Changement de couleur au survol (hover) */
 .main-nav a:hover, .main-nav .active-link {
-    background-color: #F0F0F0; 
+    background-color: rgba(255, 255, 255, 0.8); /* Moins transparent au survol */
     color: var(--color-primary); 
+    /* Ombre un peu plus prononcée au survol */
+    box-shadow: 
+        4px 4px 8px rgba(0, 0, 0, 0.15), 
+        -4px -4px 8px rgba(255, 255, 255, 0.8);
+    transform: translateY(-1px); /* Petit effet de soulèvement */
 }
 
 .main-nav i {
@@ -149,7 +165,7 @@ body {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); 
     border: 1px solid #DCE1E7; 
     height: fit-content; /* S'adapte au contenu */
-    margin: 0; /* CORRECTION 4 : Supprime les marges de décalage */
+    margin: 0; 
 }
 
 h2 {
