@@ -14,7 +14,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // ***********************************************
-            // 1. AJOUT : Définition de l'URL du serveur Render
+            // CORRECTION : Définition de l'URL du serveur Render
             // ***********************************************
             const BACKEND_URL = "https://mon-cashflow-optimise.onrender.com"; 
 
@@ -22,9 +22,7 @@
 
             connectButton.addEventListener('click', async () => {
                 // 1. Appel du Back-end pour obtenir le Link Token (Jeton temporaire)
-                // ******************************************************************
-                // 2. CORRECTION : Utilisation de l'URL complète du Back-end Render
-                // ******************************************************************
+                // CORRECTION : Utilisation de l'URL complète
                 const response = await fetch(BACKEND_URL + '/api/create_link_token', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
@@ -36,11 +34,8 @@
                 const handler = Plaid.create({
                     token: linkToken,
                     onSuccess: (public_token, metadata) => {
-                        // Fonction appelée après une connexion réussie
                         // ENVOI du jeton public au Back-end pour l'échange (Étape 2.C)
-                        // *******************************************************************
-                        // 3. CORRECTION : Utilisation de l'URL complète pour l'échange de jeton
-                        // *******************************************************************
+                        // CORRECTION : Utilisation de l'URL complète
                         fetch(BACKEND_URL + '/api/exchange_public_token', {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
@@ -107,24 +102,24 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td style="padding: 10px;">Banque TD Canada Trust</td><td style="padding: 10px; font-size: 12px;">token_td_xxxxxx...</td><td style="padding: 10px;">09/12/2025, 09:35</td><td style="padding: 10px;" class="success"><i class="fas fa-check-circle"></i> OK</td><td style="padding: 10px;"><button style="color: var(--color-alert);">Supprimer</button></td></tr>
-                        <tr><td style="padding: 10px;">BMO Ligne de Crédit</td><td style="padding: 10px; font-size: 12px;">token_bmo_xxxxxx...</td><td style="padding: 10px;">Échec de la synchro</td><td style="padding: 10px;" class="urgent"><i class="fas fa-exclamation-triangle"></i> ERREUR</td><td style="padding: 10px;"><button style="color: var(--color-info);">Réparer</button></td></tr>
-                        <tr><td style="padding: 10px;">Desjardins (Placements)</td><td style="padding: 10px; font-size: 12px;">token_des_xxxxxx...</td><td style="padding: 10px;">08/12/2025, 14:00</td><td style="padding: 10px;" class="info"><i class="fas fa-clock"></i> OK</td><td style="padding: 10px;"><button style="color: var(--color-alert);">Supprimer</button></td></tr>
+                        <tr><td style="padding: 10px;">**TD Canada Trust (Compte Principal)**</td><td style="padding: 10px; font-size: 12px;">token_td_xxxxxx...</td><td style="padding: 10px;">09/12/2025, 12:15</td><td style="padding: 10px;" class="success"><i class="fas fa-check-circle"></i> OK</td><td style="padding: 10px;"><button style="color: var(--color-alert);">Supprimer</button></td></tr>
+                        <tr><td style="padding: 10px;">**TD Canada Trust (VISA)**</td><td style="padding: 10px; font-size: 12px;">token_td_visa_x...</td><td style="padding: 10px;">09/12/2025, 12:15</td><td style="padding: 10px;" class="success"><i class="fas fa-check-circle"></i> OK</td><td style="padding: 10px;"><button style="color: var(--color-alert);">Supprimer</button></td></tr>
+                        <tr><td style="padding: 10px;">**Desjardins (Épargne REER)**</td><td style="padding: 10px; font-size: 12px;">token_des_reer_...</td><td style="padding: 10px;">08/12/2025, 14:00</td><td style="padding: 10px;" class="info"><i class="fas fa-clock"></i> OK</td><td style="padding: 10px;"><button style="color: var(--color-alert);">Supprimer</button></td></tr>
                     </tbody>
                 </table>
             </section>
-
+            
             <section class="solde-detail card" style="grid-column: 1 / 2; margin-top: 20px;">
                 <h2>Soldes Détaillés des Comptes</h2>
                 <ul style="list-style: none; padding: 0;">
                     <li style="margin-bottom: 10px; border-bottom: 1px dashed #ECF0F1; padding-bottom: 10px;">
-                        <span style="font-weight: bold;">Compte Chèques TD:</span> <span style="float: right; font-weight: bold; color: var(--color-secondary);">$ 4,520.10</span>
+                        <span style="font-weight: bold;">Compte Chèques TD:</span> <span style="float: right; font-weight: bold; color: var(--color-secondary);">$ 1,850.50</span>
                     </li>
                     <li style="margin-bottom: 10px; border-bottom: 1px dashed #ECF0F1; padding-bottom: 10px;">
-                        <span style="font-weight: bold;">Compte Épargne RBC:</span> <span style="float: right; font-weight: bold; color: var(--color-secondary);">$ 12,000.00</span>
+                        <span style="font-weight: bold;">Compte Épargne TD:</span> <span style="float: right; font-weight: bold; color: var(--color-secondary);">$ 15,200.00</span>
                     </li>
                     <li style="margin-bottom: 10px;">
-                        <span style="font-weight: bold;">Carte de Crédit Visa:</span> <span style="float: right; font-weight: bold; color: var(--color-alert);">- $ 8,500.00</span>
+                        <span style="font-weight: bold;">VISA TD (Crédit):</span> <span style="float: right; font-weight: bold; color: var(--color-alert);">- $ 750.90</span>
                     </li>
                 </ul>
                 <p style="margin-top: 20px; font-size: 12px; color: #95A5A6;">* Les soldes sont affichés en temps réel (ou lors de la dernière synchronisation).</p>
@@ -133,9 +128,10 @@
             <section class="transactions-log card" style="grid-column: 2 / 3; margin-top: 20px;">
                 <h2>Dernières Transactions Brutes</h2>
                 <ul style="list-style: none; padding: 0; max-height: 400px; overflow-y: auto;">
-                    <li style="margin-bottom: 8px; font-size: 13px;"><span style="color: #95A5A6; margin-right: 5px;">09 Déc</span> Achat Épicerie (IGA) <span style="float: right; color: var(--color-alert);">- $ 98.50</span></li>
-                    <li style="margin-bottom: 8px; font-size: 13px;"><span style="color: #95A5A6; margin-right: 5px;">08 Déc</span> Dépôt Salaire <span style="float: right; color: var(--color-secondary);">+ $ 2,500.00</span></li>
-                    <li style="margin-bottom: 8px; font-size: 13px;"><span style="color: #95A5A6; margin-right: 5px;">07 Déc</span> Paiement Netflix <span style="float: right; color: var(--color-alert);">- $ 22.99</span></li>
+                    <li style="margin-bottom: 8px; font-size: 13px;"><span style="color: #95A5A6; margin-right: 5px;">09 Déc</span> Achat VISA (Épicerie) <span style="float: right; color: var(--color-alert);">- $ 125.45</span></li>
+                    <li style="margin-bottom: 8px; font-size: 13px;"><span style="color: #95A5A6; margin-right: 5px;">08 Déc</span> Virement Épargne Auto <span style="float: right; color: var(--color-secondary);">+ $ 250.00</span></li>
+                    <li style="margin-bottom: 8px; font-size: 13px;"><span style="color: #95A5A6; margin-right: 5px;">07 Déc</span> Dépôt Salaire Principal <span style="float: right; color: var(--color-secondary);">+ $ 3,100.00</span></li>
+                    <li style="margin-bottom: 8px; font-size: 13px;"><span style="color: #95A5A6; margin-right: 5px;">07 Déc</span> Paiement Loyer Chèques <span style="float: right; color: var(--color-alert);">- $ 1,500.00</span></li>
                     </ul>
                 <button class="view-all-button" style="margin-top: 10px;">Voir toutes les transactions</button>
             </section>
