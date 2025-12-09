@@ -47,7 +47,8 @@ body {
     gap: 25px; /* Espacement entre les cartes */
     padding: 25px;
     padding-top: 10px;
-    min-width: 0; /* 🛑 CORRECTION CLÉ 1 : Empêche le débordement de la grille */
+    min-width: 0; /* CORRECTION CLÉ 1 : Empêche le débordement */
+    grid-auto-rows: minmax(min-content, max-content); /* CORRECTION CLÉ 3 : Remplissage des lignes pour éviter les vides */
 }
 
 /* ==================================== */
@@ -139,7 +140,7 @@ body {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); 
     border: 1px solid #DCE1E7; 
     height: fit-content; /* S'adapte au contenu */
-    margin: 0; /* 🛑 CORRECTION CLÉ 2 : Supprime les marges de décalage */
+    margin: 0; /* CORRECTION CLÉ 2 : Supprime les marges de décalage */
 }
 
 h2 {
