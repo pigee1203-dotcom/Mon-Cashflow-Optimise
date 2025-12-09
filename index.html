@@ -41,13 +41,40 @@
 
         <main class="content-grid">
             
-            <section class="cashflow-section card">
-                <h2>Tendance de Cashflow (3 Mois)</h2>
-                <div class="placeholder-chart">Graphique Cashflow</div>
-                <div class="cashflow-metrics">
-                    Moyenne Cashflow/Mois : **$ [Chiffre]**
-                </div>
-            </section>
+            <section class="net-result-card card" style="grid-column: 1 / 2;">
+    <h2>Résultat Net du Mois (Cashflow)</h2>
+    <div style="display: flex; justify-content: space-around; text-align: center;">
+        <div>
+            <i class="fas fa-plus-circle fa-2x success"></i> 
+            <h3>Revenus Total</h3>
+            <p style="font-size: 24px; font-weight: bold; color: var(--color-primary);">$ [X,XXX.XX]</p>
+        </div>
+        <div>
+            <i class="fas fa-minus-circle fa-2x urgent"></i> 
+            <h3>Dépenses Total</h3>
+            <p style="font-size: 24px; font-weight: bold; color: var(--color-primary);">$ [Y,YYY.YY]</p>
+        </div>
+    </div>
+    <h3 style="text-align: center; margin-top: 15px;">
+        Revenu Disponible Net : 
+        <span style="color: var(--color-secondary); font-size: 28px;">$ [Z,ZZZ.ZZ]</span>
+    </h3>
+</section>
+
+<section class="optimization-metrics card" style="grid-column: 1 / 2; margin-top: 20px;">
+    <h2>Métrique d'Optimisation : Taux d'Épargne</h2>
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+        <div style="text-align: center; flex-grow: 1;">
+            <i class="fas fa-percent fa-3x info"></i>
+            <p style="font-size: 36px; font-weight: bold; color: var(--color-info); margin-top: 10px;">[XX]%</p>
+        </div>
+        <div style="flex-grow: 2; font-size: 14px; padding-left: 20px;">
+            <p>**Objectif :** Atteindre 20%</p>
+            <p>**Calcul :** (Épargne + Placements) / Revenus nets</p>
+            <p style="color: var(--color-secondary); font-weight: bold;">Le meilleur indicateur de votre santé financière !</p>
+        </div>
+    </div>
+</section>
 
             <section class="alerts-section card">
                 <h2>🔔 Paiements à Venir (7 Jours)</h2>
