@@ -33,23 +33,22 @@ body {
 /* 2. MISE EN PAGE PRINCIPALE (GRID)    */
 /* ==================================== */
 .main-layout {
-    /* Utilisation de Flexbox pour que la sidebar et le contenu se divisent l'espace */
     display: flex; 
     width: 100%;
-    max-width: 1600px; /* AUGMENTATION DE LA LARGEUR MAXIMALE */
-    margin: 0 auto; /* C'EST LA CLÉ DU CENTRAGE */
+    max-width: 1600px; 
+    margin: 0 auto; 
 }
 
 .content-grid {
-    flex-grow: 1; /* Prend l'espace restant après la sidebar */
+    flex-grow: 1; 
     display: grid;
-    /* CHANGEMENT: Passer à 3 colonnes pour mieux organiser les 15 cartes */
+    /* CHANGEMENT: Passage à 3 colonnes pour mieux organiser les 15 cartes */
     grid-template-columns: repeat(3, 1fr); 
-    gap: 25px; /* Espacement entre les cartes */
+    gap: 25px; 
     padding: 25px;
     padding-top: 10px;
-    min-width: 0; /* Empêche le débordement */
-    grid-auto-rows: minmax(min-content, max-content); /* Remplissage des lignes pour éviter les vides */
+    min-width: 0; 
+    grid-auto-rows: minmax(min-content, max-content); 
 }
 
 /* ==================================== */
