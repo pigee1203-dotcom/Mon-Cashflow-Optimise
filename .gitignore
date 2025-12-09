@@ -1,0 +1,13 @@
+# Fichiers et Dossiers de Construction et Dépendances
+/node_modules
+/dist
+/build
+
+# Fichiers de Configuration Sensibles
+# Ces fichiers contiendront les vrais mots de passe et clés d'API !
+# ILS NE DOIVENT JAMAIS ÊTRE SUR GITHUB !
+.env
+*.env
+config/
+/server/config.json
+/server/secrets.js
