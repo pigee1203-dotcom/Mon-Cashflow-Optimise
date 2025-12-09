@@ -7,49 +7,62 @@
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-    <script src="https://cdn.plaid.com/link/v2/stable/link-initialize.js"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const connectButton = document.querySelector('.action-button.primary'); // Sélectionne le bouton de connexion
-
-        connectButton.addEventListener('click', async () => {
-            // 1. Appel du Back-end pour obtenir le Link Token (Jeton temporaire)
-            const response = await fetch('/api/create_link_token', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-            });
-            const data = await response.json();
-            const linkToken = data.link_token; // Récupère le jeton du serveur
-
-            // 2. Initialisation de Plaid Link
-            const handler = Plaid.create({
-                token: linkToken,
-                onSuccess: (public_token, metadata) => {
-                    // Fonction appelée après une connexion réussie
-                    // ENVOI du jeton public au Back-end pour l'échange (Étape 2.C)
-                    fetch('/api/exchange_public_token', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ public_token: public_token }),
-                    }).then(res => res.json())
-                      .then(result => {
-                          alert('Connexion réussie ! Jeton permanent enregistré sur le serveur.');
-                          window.location.reload(); // Recharger la page après succès
-                      });
-                },
-                onExit: (err, metadata) => {
-                    // Gérer les erreurs (ex: l'utilisateur ferme la fenêtre)
-                    console.error('Erreur Plaid Link:', err);
-                },
-            });
-
-            // 3. Ouvrir l'interface de connexion Plaid
-            handler.open();
-        });
-    });
-</script>
 <body>
+    
+    <script src="https://cdn.plaid.com/link/v2/stable/link-initialize.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // ***********************************************
+            // 1. AJOUT : Définition de l'URL du serveur Render
+            // ***********************************************
+            const BACKEND_URL = "https://mon-cashflow-optimise.onrender.com"; 
 
+            const connectButton = document.querySelector('.action-button.primary'); // Sélectionne le bouton de connexion
+
+            connectButton.addEventListener('click', async () => {
+                // 1. Appel du Back-end pour obtenir le Link Token (Jeton temporaire)
+                // ******************************************************************
+                // 2. CORRECTION : Utilisation de l'URL complète du Back-end Render
+                // ******************************************************************
+                const response = await fetch(BACKEND_URL + '/api/create_link_token', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                });
+                const data = await response.json();
+                const linkToken = data.link_token; // Récupère le jeton du serveur
+
+                // 2. Initialisation de Plaid Link
+                const handler = Plaid.create({
+                    token: linkToken,
+                    onSuccess: (public_token, metadata) => {
+                        // Fonction appelée après une connexion réussie
+                        // ENVOI du jeton public au Back-end pour l'échange (Étape 2.C)
+                        // *******************************************************************
+                        // 3. CORRECTION : Utilisation de l'URL complète pour l'échange de jeton
+                        // *******************************************************************
+                        fetch(BACKEND_URL + '/api/exchange_public_token', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ public_token: public_token }),
+                        }).then(res => res.json())
+                          .then(result => {
+                              alert('Connexion réussie ! Jeton permanent enregistré sur le serveur.');
+                              window.location.reload(); // Recharger la page après succès
+                          });
+                    },
+                    onExit: (err, metadata) => {
+                        // Gérer les erreurs (ex: l'utilisateur ferme la fenêtre)
+                        console.error('Erreur Plaid Link:', err);
+                    },
+                });
+
+                // 3. Ouvrir l'interface de connexion Plaid
+                handler.open();
+            });
+        });
+    </script>
+    
     <header class="header">
         <div class="net-worth">
             <h1>Module : Comptes & Connexion Bancaire</h1>
@@ -127,14 +140,8 @@
                 <button class="view-all-button" style="margin-top: 10px;">Voir toutes les transactions</button>
             </section>
         
-     </main>
-    </div>
-
-    <script src="https://cdn.plaid.com/link/v2/stable/link-initialize.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => { /* ... votre code JavaScript ... */ });
-    </script>
+    </main>
+    </div>
 
 </body>
 </html>
-
