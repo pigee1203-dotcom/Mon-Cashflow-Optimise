@@ -36,14 +36,15 @@ body {
     /* Utilisation de Flexbox pour que la sidebar et le contenu se divisent l'espace */
     display: flex; 
     width: 100%;
-    max-width: 1400px; /* Limite la largeur du contenu */
+    max-width: 1600px; /* AUGMENTATION DE LA LARGEUR MAXIMALE */
     margin: 0 auto; /* C'EST LA CLÉ DU CENTRAGE */
 }
 
 .content-grid {
     flex-grow: 1; /* Prend l'espace restant après la sidebar */
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 colonnes égales pour les cartes */
+    /* CHANGEMENT: Passer à 3 colonnes pour mieux organiser les 15 cartes */
+    grid-template-columns: repeat(3, 1fr); 
     gap: 25px; /* Espacement entre les cartes */
     padding: 25px;
     padding-top: 10px;
@@ -261,17 +262,46 @@ h2 {
 }
 
 /* ==================================== */
-/* 7. RESPONSIVE DESIGN (Correction)    */
+/* 7. RESPONSIVE DESIGN & LAYOUT (3 Colonnes)*/
 /* ==================================== */
 
-@media (max-width: 1200px) {
-    /* Le 'main-layout' devient un simple bloc pour laisser plus de place */
+/* Priorité: Ces cartes prennent 2 colonnes sur 3 pour être très visibles */
+.net-result-card {
+    grid-column: span 2; 
+}
+
+/* Le graphique de dépenses est également large */
+.expense-breakdown-card {
+    grid-column: span 2; 
+}
+
+/* L'astuce d'optimisation (bloc d'action) est également large */
+.advice-section {
+    grid-column: span 2;
+}
+
+/* -- Gestion des Breakpoints -- */
+
+/* Ordinateurs portables / Ecrans légèrement plus petits (passage à 2 colonnes) */
+@media (max-width: 1400px) {
+    .content-grid {
+        grid-template-columns: repeat(2, 1fr); /* Revenir à 2 colonnes */
+    }
+    
+    /* Les éléments importants doivent toujours prendre toute la largeur de 2 colonnes */
+    .net-result-card, 
+    .expense-breakdown-card,
+    .advice-section {
+        grid-column: span 2; 
+    }
+}
+
+/* Ecrans de tablette (on conserve 2 colonnes) */
+@media (max-width: 1200px) { 
     .main-layout {
         display: block;
         max-width: 900px; 
     }
-
-    /* La sidebar prend toute la largeur */
     .sidebar {
         width: 100%;
         min-height: auto;
@@ -279,18 +309,21 @@ h2 {
         border-right: none;
         padding: 10px 25px;
     }
-    
-    /* On force le contenu de la grille à rester sur 2 colonnes */
     .content-grid {
-        grid-template-columns: repeat(2, 1fr); 
         padding: 10px 25px 25px 25px; 
     }
 }
 
-/* Si l'écran est très petit, on revient à 1 colonne */
+/* Téléphones (passage à 1 colonne) */
 @media (max-width: 600px) {
     .content-grid {
         grid-template-columns: 1fr; 
+    }
+    /* En mode 1 colonne, tout prend 1 colonne */
+    .net-result-card, 
+    .expense-breakdown-card,
+    .advice-section {
+        grid-column: span 1; 
     }
 }
 
@@ -299,7 +332,6 @@ h2 {
 /* ==================================== */
 
 .daily-advice-card {
-    /* Style pour accentuer le côté "Temps réel / Alerte" */
     border: 2px solid var(--color-info); 
 }
 
@@ -309,8 +341,8 @@ h2 {
 
 /* Style spécifique pour la zone de conseil (pour le changement dynamique) */
 .daily-advice-card .advice-box {
-    background-color: rgba(255, 193, 7, 0.1); /* Utiliser une version très pâle du jaune */
-    border-left: 5px solid var(--color-info); /* Ligne verticale jaune */
+    background-color: rgba(255, 193, 7, 0.1); 
+    border-left: 5px solid var(--color-info); 
     padding: 15px;
     border-radius: 8px;
     margin-bottom: 15px;
