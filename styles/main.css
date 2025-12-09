@@ -234,3 +234,37 @@ h2 {
 .sync-button:hover {
     background-color: #F0F0F0;
 }
+
+/* ==================================== */
+/* 7. RESPONSIVE DESIGN (Correction)    */
+/* ==================================== */
+
+@media (max-width: 1200px) {
+    /* Le 'main-layout' devient un simple bloc pour laisser plus de place */
+    .main-layout {
+        display: block;
+        max-width: 900px; /* Réduit la largeur pour que les colonnes tiennent */
+    }
+
+    /* La sidebar prend maintenant toute la largeur et est centrée */
+    .sidebar {
+        width: 100%;
+        min-height: auto;
+        box-shadow: none;
+        border-right: none;
+        padding: 10px 25px;
+    }
+    
+    /* On force le contenu de la grille à rester sur 2 colonnes */
+    .content-grid {
+        grid-template-columns: repeat(2, 1fr); 
+        padding: 10px 25px 25px 25px; /* Ajuste le padding après la sidebar */
+    }
+}
+
+/* Si l'écran est très petit, on revient à 1 colonne */
+@media (max-width: 600px) {
+    .content-grid {
+        grid-template-columns: 1fr; /* Une seule colonne pour les mobiles */
+    }
+}
