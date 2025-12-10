@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objectifs & Planification</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Styles spécifiques pour les objectifs */
+        .progress-bar-container {
+            width: 100%;
+            background-color: #e0e0e0;
+            border-radius: 20px;
+            margin-top: 10px;
+            overflow: hidden;
+            height: 30px;
+        }
+        .progress-bar {
+            height: 100%;
+            line-height: 30px;
+            text-align: right;
+            padding-right: 15px;
+            color: white;
+            font-weight: bold;
+            background-color: var(--color-primary); /* Bleu */
+            transition: width 0.5s ease-in-out;
+        }
+        .objective-detail p {
+            margin: 5px 0;
+            font-size: 1.1em;
+        }
+        .simulator-form input, .simulator-form select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #DCE1E7;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="net-worth">
+            <span>Valeur Nette Totale (Simulée)</span>
+            <h1 class="net-value primary-color">$ 71,299.60</h1>
+            <span class="net-indicator success">↑ 1.25%</span>
+        </div>
+        <a href="centre-apprentissage.html" class="sync-button"><i class="fas fa-graduation-cap"></i> Voir le Centre d'Apprentissage</a>
+    </header>
+
+    <div class="main-layout">
+        
+        <aside class="sidebar">
+            <nav class="main-nav">
+                <ul>
+                    <li><i class="fas fa-chart-line"></i> <a href="index.html">Dashboard</a></li> 
+                    <li><i class="fas fa-wallet"></i> <a href="server/comptes.html">Comptes</a></li>
+                    <li><i class="fas fa-graduation-cap"></i> <a href="centre-apprentissage.html">Apprentissage</a></li>
+                    <li><i class="fas fa-hand-holding-usd"></i> <a href="dettes.html">Dettes & Stratégie</a></li>
+                    <li><i class="fas fa-piggy-bank"></i> <a href="placements.html">Placements</a></li>
+                    <li><i class="fas fa-exchange-alt"></i> <a href="transactions.html">Transactions</a></li>
+                    <li><i class="fas fa-bullseye"></i> <a href="objectifs.html" class="active-link">Objectifs</a></li>
+                </ul>
+            </nav>
+            <div class="bottom-menu">
+                <a href="#"><i class="fas fa-cog"></i> Paramètres</a>
+            </div>
+        </aside>
+
+        <main class="content-grid" style="grid-template-columns: repeat(3, 1fr);">
+            
+            <section class="card" style="grid-column: span 2;">
+                <h2><i class="fas fa-home"></i> Objectif: Mise de Fonds pour une Maison</h2>
+                <div style="margin-bottom: 20px;">
+                    <div class="objective-detail">
+                        <p>Objectif Cible: **$ 30,000.00**</p>
+                        <p>Montant Actuel Épargné: **$ 14,500.00**</p>
+                        <p>Montant Restant à Accumuler: **$ 15,500.00**</p>
+                    </div>
+                    
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" style="width: 48.33%;">48.33 %</div>
+                    </div>
+                    
+                    <a href="#" class="view-all-button" style="margin-top: 10px;">Ajouter un montant à cet objectif</a>
+                </div>
+            </section>
+            
+            <section class="card" style="grid-column: span 1;">
+                <h2><i class="fas fa-calculator"></i> Simulateur d'Objectif</h2>
+                <div class="simulator-form">
+                    <label for="monthly-contribution">Contribution Mensuelle ($)</label>
+                    <input type="number" id="monthly-contribution" value="450" required>
+                    
+                    <label for="annual-return">Taux de Rendement Annuel Estimé (%)</label>
+                    <input type="number" id="annual-return" value="3.5" required>
+                    
+                    <label for="current-amount">Montant de Départ ($)</label>
+                    <input type="number" id="current-amount" value="14500" required>
+                    
+                    <button class="action-btn primary" style="width: 100%; margin-top: 10px;"><i class="fas fa-paper-plane"></i> Simuler l'Échéancier</button>
+                </div>
+            </section>
+
+            <section class="card" style="grid-column: span 3; background-color: #F0F9FF; border-left: 5px solid var(--color-primary);">
+                <h2><i class="fas fa-chart-line"></i> Résultat de la Simulation</h2>
+                <p style="font-size: 1.1em; font-weight: bold;">
+                    Avec une contribution mensuelle de $ 450.00 et un rendement de 3.5%, vous atteindrez votre cible de $ 30,000.00 en : 
+                    <span style="color: var(--color-success); font-size: 1.5em; display: block; margin-top: 5px;">**2 ans et 10 mois**</span>
+                </p>
+                
+                <a href="#" class="view-all-button" style="text-align: center;">Afficher le tableau détaillé de la projection</a>
+            </section>
+
+        </main>
+    </div>
+
+</body>
+</html>
