@@ -1,246 +1,110 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Centre de Pilotage Financier - Dashboard</title>
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Budget - Dashboard</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-    <header class="header">
-        <div class="net-worth">
-            <span>Valeur Nette Totale (Simulée)</span>
-            <h1 class="net-value primary-color">$ 71,299.60</h1>
-            <span class="net-indicator success">↑ 1.25%</span>
-        </div>
-        <a href="comptes.html" class="sync-button"><i class="fas fa-sync-alt"></i> Dernière Synchro : Aujourd'hui</a>
-    </header>
+    <header class="header">
+        <div class="net-worth">
+            <span>Valeur Nette Totale (Simulée)</span>
+            <h1 class="net-value primary-color">$ 71,299.60</h1>
+            <span class="net-indicator success">↑ 1.25%</span>
+        </div>
+        <a href="styles/centre-apprentissage.html" class="sync-button"><i class="fas fa-graduation-cap"></i> Voir le Centre d'Apprentissage</a>
+    </header>
 
-    <div class="main-layout">
-        
-        <aside class="sidebar">
-            <nav class="main-nav">
-                <ul>
-                    <li><i class="fas fa-chart-line"></i> <a href="#">Dashboard</a></li> 
-                    <li><i class="fas fa-wallet"></i> <a href="comptes.html">Comptes</a></li>
-                    <li><i class="fas fa-hand-holding-usd"></i> <a href="#">Dettes & Stratégie</a></li>
-                    <li><i class="fas fa-piggy-bank"></i> <a href="#">Placements</a></li>
-                    <li><i class="fas fa-exchange-alt"></i> <a href="#">Transactions</a></li>
-                    <li><i class="fas fa-bullseye"></i> <a href="#">Objectifs</a></li>
-                </ul>
-            </nav>
-            <div class="quick-actions">
-                <h3>Actions Rapides</h3>
-                <button class="action-button primary"><i class="fas fa-money-check-alt"></i> Faire un Paiement</button>
-                <button class="action-button primary"><i class="fas fa-calendar-check"></i> Planifier un Virement</button>
-                <button class="action-button secondary"><i class="fas fa-plus"></i> Transaction Manuelle</button>
-            </div>
-        </aside>
+    <div class="main-layout">
+        
+        <aside class="sidebar">
+            <nav class="main-nav">
+                <ul>
+                    <li><i class="fas fa-chart-line"></i> <a href="index.html" class="active-link">Dashboard</a></li> 
+                    <li><i class="fas fa-wallet"></i> <a href="comptes.html">Comptes</a></li>
+                    <li><i class="fas fa-graduation-cap"></i> <a href="styles/centre-apprentissage.html">Apprentissage</a></li>
+                    <li><i class="fas fa-hand-holding-usd"></i> <a href="dettes.html">Dettes & Stratégie</a></li>
+                    <li><i class="fas fa-piggy-bank"></i> <a href="placements.html">Placements</a></li>
+                    <li><i class="fas fa-exchange-alt"></i> <a href="#">Transactions</a></li>
+                    <li><i class="fas fa-bullseye"></i> <a href="#">Objectifs</a></li>
+                </ul>
+            </nav>
+            <div class="bottom-menu">
+                <a href="#"><i class="fas fa-cog"></i> Paramètres</a>
+            </div>
+        </aside>
 
-        <main class="content-grid">
-            
-            <section class="net-result-card card">
-                <h2>Résultat Net du Mois (Cashflow)</h2>
-                <div style="display: flex; justify-content: space-around; text-align: center;">
-                    <div>
-                        <i class="fas fa-plus-circle fa-2x success"></i> 
-                        <h3>Revenus Total</h3>
-                        <p style="font-size: 24px; font-weight: bold; color: var(--color-primary);">$ 3,100.00</p>
-                    </div>
-                    <div>
-                        <i class="fas fa-minus-circle fa-2x alert"></i> 
-                        <h3>Dépenses Total</h3>
-                        <p style="font-size: 24px; font-weight: bold; color: var(--color-primary);">$ 2,200.00</p>
-                    </div>
-                </div>
-                <h3 style="text-align: center; margin-top: 15px;">
-                    Revenu Disponible Net : 
-                    <span style="color: var(--color-secondary); font-size: 28px;">$ 900.00</span>
-                </h3>
-            </section>
+        <main class="content-grid">
+            
+            <section class="card quick-actions">
+                <h2><i class="fas fa-bolt"></i> Actions Rapides</h2>
+                <div class="action-buttons">
+                    <button class="action-btn success"><i class="fas fa-plus"></i> Nouvelle Transaction</button>
+                    <button class="action-btn primary"><i class="fas fa-piggy-bank"></i> Vers Placements</button>
+                    <button class="action-btn info"><i class="fas fa-university"></i> Rembourser Dette</button>
+                </div>
+            </section>
 
-            <section class="monthly-projection-card card">
-                <h2>🔮 Projection de Solde de Fin de Mois</h2>
-                <div style="text-align: center; padding: 10px 0;">
-                    <i class="fas fa-calendar-check fa-3x success"></i>
-                    <p style="font-size: 18px; margin: 10px 0 5px 0;">Solde Chèques projeté au 31 Décembre :</p>
-                    <p style="font-size: 48px; font-weight: bold; color: var(--color-success); margin: 0;">$ 2,100.00</p>
-                </div>
-                <p style="text-align: center; font-size: 14px;">
-                    **Méthode :** Basé sur l'historique récurrent et les paiements planifiés.
-                </p>
-                <a href="#" class="view-all-button">Voir le détail du flux de trésorerie</a>
-            </section>
+            <section class="card asset-summary">
+                <h2><i class="fas fa-chart-pie"></i> Sommaire des Actifs</h2>
+                <div class="asset-list">
+                    <div class="asset-item">
+                        <span>Comptes Chèques/Épargne</span>
+                        <span class="value">$ 11,299.60</span>
+                    </div>
+                    <div class="asset-item">
+                        <span>Investissements (CELI/REER)</span>
+                        <span class="value">$ 60,000.00</span>
+                    </div>
+                    <div class="asset-item total">
+                        <span>TOTAL</span>
+                        <span class="value primary-color">$ 71,299.60</span>
+                    </div>
+                </div>
+            </section>
 
-            <section class="accounts-summary card">
-                <h2>Résumé des Comptes et Placements</h2>
-                <ul class="account-list" style="list-style: none; padding: 0;">
-                    <li style="border-bottom: 1px solid #ECF0F1; padding: 10px 0;">
-                        <span style="font-weight: bold;"><i class="fas fa-coins success"></i> Compte Chèques TD</span>
-                        <span style="float: right; font-weight: bold; color: var(--color-secondary);">$ 1,850.50</span>
-                    </li>
-                    <li style="border-bottom: 1px solid #ECF0F1; padding: 10px 0;">
-                        <span style="font-weight: bold;"><i class="fas fa-piggy-bank success"></i> Compte Épargne TD</span>
-                        <span style="float: right; font-weight: bold; color: var(--color-secondary);">$ 15,200.00</span>
-                    </li>
-                    <li style="border-bottom: 1px solid #ECF0F1; padding: 10px 0;">
-                        <span style="font-weight: bold;"><i class="fas fa-chart-line success"></i> Desjardins (Placements REER)</span>
-                        <span style="float: right; font-weight: bold; color: var(--color-secondary);">$ 55,000.00</span>
-                    </li>
-                    <li style="padding: 10px 0;">
-                        <span style="font-weight: bold;"><i class="fas fa-credit-card alert"></i> Carte VISA TD</span>
-                        <span style="float: right; font-weight: bold; color: var(--color-alert);">- $ 750.90</span>
-                    </li>
-                </ul>
-                <a href="comptes.html" class="view-all-button">Gérer les connexions et voir les détails</a>
-            </section>
-            
-            <section class="optimization-metrics card">
-                <h2>Métrique d'Optimisation : Taux d'Épargne</h2>
-                <div style="display: flex; justify-content: space-between; align-items: center;">
-                    <div style="text-align: center; flex-grow: 1;">
-                        <i class="fas fa-percent fa-3x info"></i>
-                        <p style="font-size: 36px; font-weight: bold; color: var(--color-info); margin-top: 10px;">[29]%</p>
-                    </div>
-                    <div style="flex-grow: 2; font-size: 14px; padding-left: 20px;">
-                        <p>**Objectif :** Atteindre 20%</p>
-                        <p>**Calcul :** (Épargne + Placements) / Revenus nets</p>
-                        <p style="color: var(--color-secondary); font-weight: bold;">Le meilleur indicateur de votre santé financière !</p>
-                    </div>
-                </div>
-            </section>
+            <section class="card debt-summary">
+                <h2><i class="fas fa-credit-card"></i> Dette et Endettement</h2>
+                <div class="debt-status">
+                    <span class="debt-title">Utilisation du Crédit</span>
+                    <span class="debt-value success">12% (Excellent)</span>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar success" style="width: 12%;"></div>
+                    </div>
+                </div>
+                <div class="debt-list">
+                    <div class="debt-item">
+                        <span>Marge de Crédit</span>
+                        <span class="value">$ 8,500.00</span>
+                    </div>
+                </div>
+            </section>
 
-            <section class="goal-simulator-card card">
-                <h2>🎯 Simulateur d'Objectifs</h2>
-                <p style="font-size: 14px; margin-bottom: 15px;">Estimez l'impact de vos versements sur vos objectifs à long terme (Retraite, Achat Maison, etc.).</p>
-                <div style="background-color: #F8F9FA; padding: 15px; border-radius: 8px;">
-                    <p style="margin: 0 0 10px 0;">Si vous ajoutez **$100.00** à votre épargne-retraite...</p>
-                    <p style="font-size: 20px; font-weight: bold; color: var(--color-primary); margin: 0;">Objectif atteint <span style="color: var(--color-secondary);">8 mois plus tôt</span> !</p>
-                </div>
-                <button class="action-button primary view-all-button" style="text-align: center;"><i class="fas fa-calculator"></i> Lancer la simulation</button>
-            </section>
-            
-            <section class="emotional-spending-card card">
-                <h2>🧠 Dépense Non-Essentielle</h2>
-                <div style="text-align: center; padding: 10px 0;">
-                    <i class="fas fa-hand-holding-usd fa-3x alert"></i>
-                    <p style="font-size: 18px; margin: 10px 0 5px 0;">Total des dépenses facultatives ce mois :</p>
-                    <p style="font-size: 48px; font-weight: bold; color: var(--color-alert); margin: 0;">$ 450.00</p>
-                </div>
-                <p style="text-align: center; font-size: 14px;">
-                    Tendance : **+15%** vs votre moyenne mensuelle.
-                </p>
-                <a href="#" class="view-all-button">Identifier les abonnements et les extras</a>
-            </section>
+            <section class="card activity-log">
+                <h2><i class="fas fa-history"></i> Activité Récente</h2>
+                <ul>
+                    <li><span class="date">2025-12-09</span> <span class="description success">+ $250.00 (Salaire)</span></li>
+                    <li><span class="date">2025-12-08</span> <span class="description info">-$45.50 (Épicerie)</span></li>
+                    <li><span class="date">2025-12-05</span> <span class="description primary">-$500.00 (Transfert CELI)</span></li>
+                </ul>
+            </section>
 
-            <section class="alerts-section card">
-                <h2>🔔 Paiements à Venir (7 Jours)</h2>
-                <ul>
-                    <li class="alert urgent"><i class="fas fa-exclamation-triangle"></i> Paiement Minimum Carte RBC dû le 12 Déc : **$125.00**</li>
-                    <li class="alert success"><i class="fas fa-check-circle"></i> Hypothèque Planifiée le 15 Déc : **$1,500.00** (Automatique)</li>
-                    <li class="alert info"><i class="fas fa-info-circle"></i> Hydro-Québec dû le 19 Déc : **$88.50**</li>
-                </ul>
-                <button class="view-all-button">Voir toutes les alertes</button>
-            </section>
+            <section class="card goal-progress" style="grid-column: span 2;">
+                <h2><i class="fas fa-bullseye"></i> Progression des Objectifs (Maison)</h2>
+                <div class="goal-item">
+                    <span>Mise de Fonds (Cible : $30,000)</span>
+                    <span class="value">$ 14,500.00 (48%)</span>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar info" style="width: 48%;"></div>
+                    </div>
+                </div>
+            </section>
 
-            <section class="debt-projection-card card">
-                <h2>📉 Projection de Libération de Dette</h2>
-                <div style="text-align: center; padding: 10px 0;">
-                    <i class="fas fa-calendar-alt fa-3x alert"></i>
-                    <p style="font-size: 18px; margin: 10px 0 5px 0;">Date de Fin de Dette (Hors Hypothèque) :</p>
-                    <p style="font-size: 32px; font-weight: bold; color: var(--color-alert); margin: 0;">Mars 2028</p>
-                </div>
-                <p style="text-align: center; font-size: 14px;">
-                    Économie potentielle totale d'intérêts : **$1,550.00**
-                </p>
-                <a href="#" class="view-all-button">Gérer la stratégie de remboursement</a>
-            </section>
-            
-            <section class="expense-breakdown-card card">
-                <h2>📈 Ventilation des Dépenses (Ce Mois)</h2>
-                <div class="chart-placeholder" style="text-align: center; padding: 20px;">
-                    <i class="fas fa-chart-pie fa-5x" style="color: #CED4DA; margin-bottom: 10px;"></i>
-                    <p style="font-style: italic;">(Graphique des Catégories de Dépenses)</p>
-                </div>
-                <ul class="top-expenses" style="list-style: none; padding: 0; font-size: 14px;">
-                    <li style="display: flex; justify-content: space-between; padding: 5px 0;"><span><i class="fas fa-home"></i> Logement</span> <strong>$ 850.00</strong></li>
-                    <li style="display: flex; justify-content: space-between; padding: 5px 0;"><span><i class="fas fa-shopping-cart"></i> Alimentation</span> <strong>$ 400.00</strong></li>
-                    <li style="display: flex; justify-content: space-between; padding: 5px 0;"><span><i class="fas fa-gas-pump"></i> Transport</span> <strong>$ 250.00</strong></li>
-                </ul>
-                <a href="#" class="view-all-button">Analyser toutes les transactions</a>
-            </section>
+        </main>
+    </div>
 
-            <section class="emergency-fund-card card">
-                <h2>🛡️ Fonds d'Urgence</h2>
-                <div style="text-align: center; padding: 10px 0;">
-                    <i class="fas fa-shield-alt fa-3x success"></i>
-                    <p style="font-size: 18px; margin: 10px 0 5px 0;">Couverture Actuelle :</p>
-                    <p style="font-size: 48px; font-weight: bold; color: var(--color-secondary);">3.8 Mois</p>
-                </div>
-                <p style="text-align: center; font-size: 14px;">
-                    Objectif : **6 Mois de Dépenses** ($ 13,200.00)
-                </p>
-                <div class="progress-bar-placeholder" style="height: 10px; background-color: #E9ECEF; border-radius: 5px; margin-top: 15px;">
-                    <div style="width: 63%; height: 100%; background-color: var(--color-secondary); border-radius: 5px;"></div>
-                </div>
-            </section>
-
-            <section class="tax-resources-card card">
-                <h2>💰 Ressources Fiscales & Investissement</h2>
-                <div style="font-size: 14px;">
-                    <h3 style="margin-top: 0; font-size: 16px;">CELI & REER</h3>
-                    <p><i class="fas fa-check-circle success"></i> Droit de Cotisation CELI estimé : **$5,000.00**</p>
-                    <p><i class="fas fa-check-circle success"></i> Droit de Cotisation REER estimé : **$12,500.00**</p>
-                    <p style="margin-top: 10px; font-style: italic;">Maximisez l'impact de l'impôt sur votre patrimoine.</p>
-                </div>
-                                <a href="styles/centre-apprentissage.html" class="view-all-button">Consulter les guides et les limites</a>
-            </section>
-            
-            <section class="housing-planning-card card">
-                <h2>🏡 Planification d'Achat Immobilier</h2>
-                <div style="text-align: center; padding: 10px 0;">
-                    <i class="fas fa-house-user fa-3x primary-color"></i>
-                    <p style="font-size: 18px; margin: 10px 0 5px 0;">Capacité d'Emprunt Estimée :</p>
-                    <p style="font-size: 32px; font-weight: bold; color: var(--color-primary); margin: 0;">$ 350,000</p>
-                </div>
-                <p style="text-align: center; font-size: 14px;">
-                    Fonds disponibles pour la mise de fonds (via REER/Épargne) : **$15,200**
-                </p>
-                                <a href="styles/centre-apprentissage.html" class="view-all-button">Simuler votre hypothèque</a>
-            </section>
-            
-            <section class="credit-section card">
-                <h2>Statut de Crédit <i class="fas fa-shield-alt"></i></h2>
-                <div class="credit-score">
-                    Cote Actuelle : **758** <span class="badge excellent">Excellent</span>
-                </div>
-                <p class="credit-detail">Objectif : Atteindre **780** d'ici fin 2026.</p>
-                <p class="credit-detail">Utilisation du Crédit : **12%** (<span class="success">↓ 2%</span> vs dernier mois)</p>
-            </section>
-
-            <section class="daily-advice-card card">
-                <h2>📚 Conseil Financier du Jour</h2>
-                <div class="advice-box">
-                    <p style="font-style: italic; color: var(--color-text);">
-                        Votre Taux d'Épargne est excellent (29%). Maximisez ce succès :
-                    </p>
-                    <p style="font-weight: bold; margin-top: 10px; color: var(--color-secondary);">
-                        Considérez d'augmenter votre contribution au **CELI** ou **REER** pour optimiser vos impôts.
-                    </p>
-                </div>
-                                <a href="styles/centre-apprentissage.html" class="view-all-button">Voir le Centre d'Apprentissage</a>
-            </section>
-
-            <section class="advice-section card">
-                <h2>💡 Astuce d'Optimisation</h2>
-                <p>Votre dette sur la **Carte VISA TD** est à 19.99%. Payez <strong>$500 de plus</strong> sur cette carte ce mois-ci pour économiser <strong>$83</strong> en intérêts et accélérer l'objectif Avalanche.</p>
-                <button class="action-button primary-green"><i class="fas fa-calculator"></i> Planifier le paiement suggéré</button>
-            </section>
-
-        </main>
-    </div>
-
-    </body>
+</body>
 </html>
