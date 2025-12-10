@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mon Budget - Dashboard</title>
-    <link rel="stylesheet" href="styles/main.css?v=1">
+    <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -18,7 +18,7 @@
         <a href="styles/centre-apprentissage.html" class="sync-button"><i class="fas fa-graduation-cap"></i> Voir le Centre d'Apprentissage</a>
     </header>
 
-    <div class="main-layout"> 
+    <div class="main-layout">
         
         <aside class="sidebar">
             <nav class="main-nav">
@@ -102,8 +102,46 @@
                     </div>
                 </div>
             </section>
+            
+            <section class="card debt-card">
+                <h2><i class="fas fa-credit-card"></i> Carte VISA TD</h2>
+                <div style="text-align: center; padding: 15px 0;">
+                    <span style="font-size: 24px; font-weight: bold; color: var(--color-alert); display: block;">- $ 750.90</span>
+                    <a href="#" class="view-all-button" style="margin-top: 20px;">Gérer les connexions et voir les détails</a>
+                </div>
+            </section>
+
+            <section class="card goal-simulator-card">
+                <h2><i class="fas fa-calculator"></i> Simulateur d'Objectifs</h2>
+                <p>Estimez l'impact de vos versements sur vos objectifs à long terme (Retraite, Achat Maison, etc.).</p>
+                <div style="background-color: #f7f9fd; border-radius: 8px; padding: 15px; margin: 15px 0;">
+                    <p>Si vous ajoutez **$100.00** à votre épargne-retraite.</p>
+                    <p style="font-weight: bold; color: var(--color-primary);">Objectif atteint 8 mois plus tôt !</p>
+                </div>
+                <button class="action-btn primary"><i class="fas fa-chart-bar"></i> Lancer la simulation</button>
+            </section>
+
+            <section class="card expense-card">
+                <h2><i class="fas fa-shopping-bag"></i> Dépense Non-Essentielle</h2>
+                <div style="text-align: center; padding: 15px 0;">
+                    <span style="font-size: 40px; color: var(--color-danger); display: block; margin-bottom: 10px;">$</span>
+                    <p>Votre moyenne mensuelle actuelle est de **$1,500.00**.</p>
+                    <a href="#" class="view-all-button">Voir les détails des catégories</a>
+                </div>
+            </section>
+
+            <section class="card payment-card">
+                <h2><i class="fas fa-bell"></i> Paiements à Venir (7 Jours)</h2>
+                <ul>
+                    <li style="color: var(--color-alert);"><i class="fas fa-circle-exclamation"></i> Paiement Minimum Carte RBC dû le 12 Décembre</li>
+                    <li><i class="fas fa-dollar-sign"></i> Loyer Automatique le 15 Décembre</li>
+                </ul>
+                <a href="#" class="view-all-button">Voir le calendrier complet</a>
+            </section>
+
 
         </main>
     </div>
-    </body>
+
+</body>
 </html>
