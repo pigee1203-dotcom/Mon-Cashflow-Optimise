@@ -3,67 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comptes & Connexion - Mon Centre de Pilotage Financier</title>
-    <link rel="stylesheet" href="styles/main.css">
+    <title>Comptes - Mes Finances</title>
+    <link rel="stylesheet" href="../styles/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    
-    <script src="https://cdn.plaid.com/link/v2/stable/link-initialize.js"></script>
-    
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // ***********************************************
-            // CORRECTION : Définition de l'URL du serveur Render
-            // ***********************************************
-            const BACKEND_URL = "https://mon-cashflow-optimise.onrender.com"; 
 
-            const connectButton = document.querySelector('.action-button.primary'); // Sélectionne le bouton de connexion
-
-            connectButton.addEventListener('click', async () => {
-                // 1. Appel du Back-end pour obtenir le Link Token (Jeton temporaire)
-                // CORRECTION : Utilisation de l'URL complète
-                const response = await fetch(BACKEND_URL + '/api/create_link_token', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                });
-                const data = await response.json();
-                const linkToken = data.link_token; // Récupère le jeton du serveur
-
-                // 2. Initialisation de Plaid Link
-                const handler = Plaid.create({
-                    token: linkToken,
-                    onSuccess: (public_token, metadata) => {
-                        // ENVOI du jeton public au Back-end pour l'échange (Étape 2.C)
-                        // CORRECTION : Utilisation de l'URL complète
-                        fetch(BACKEND_URL + '/api/exchange_public_token', {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({ public_token: public_token }),
-                        }).then(res => res.json())
-                          .then(result => {
-                              alert('Connexion réussie ! Jeton permanent enregistré sur le serveur.');
-                              window.location.reload(); // Recharger la page après succès
-                          });
-                    },
-                    onExit: (err, metadata) => {
-                        // Gérer les erreurs (ex: l'utilisateur ferme la fenêtre)
-                        console.error('Erreur Plaid Link:', err);
-                    },
-                });
-
-                // 3. Ouvrir l'interface de connexion Plaid
-                handler.open();
-            });
-        });
-    </script>
-    
     <header class="header">
         <div class="net-worth">
-            <h1>Module : Comptes & Connexion Bancaire</h1>
-            <span class="net-value">Gestion de vos liens avec les institutions financières (Plaid)</span>
+            <span>Valeur Nette Totale (Simulée)</span>
+            <h1 class="net-value primary-color">$ 71,299.60</h1>
+            <span class="net-indicator success">↑ 1.25%</span>
         </div>
-        <a href="index.html" class="sync-button"><i class="fas fa-arrow-left"></i> Retour Dashboard</a>
+        <a href="../index.html" class="sync-button"><i class="fas fa-arrow-left"></i> Retour au Dashboard</a>
     </header>
 
     <div class="main-layout">
@@ -71,72 +23,83 @@
         <aside class="sidebar">
             <nav class="main-nav">
                 <ul>
-                    <li><i class="fas fa-chart-line"></i> <a href="index.html">Dashboard</a></li>
-                    <li><i class="fas fa-wallet"></i> <a href="#" class="active-link">Comptes</a> (actif)</li>
-                    <li><i class="fas fa-hand-holding-usd"></i> <a href="dettes.html">Dettes & Stratégie</a></li>
-                    <li><i class="fas fa-piggy-bank"></i> <a href="placements.html">Placements</a></li>
-                    </ul>
+                    <li><i class="fas fa-chart-line"></i> <a href="../index.html">Dashboard</a></li> 
+                    <li><i class="fas fa-wallet"></i> <a href="#" class="active-link">Comptes</a></li>
+                    <li><i class="fas fa-graduation-cap"></i> <a href="../styles/centre-apprentissage.html">Apprentissage</a></li>
+                    <li><i class="fas fa-hand-holding-usd"></i> <a href="../dettes.html">Dettes & Stratégie</a></li>
+                    <li><i class="fas fa-piggy-bank"></i> <a href="../placements.html">Placements</a></li>
+                    <li><i class="fas fa-exchange-alt"></i> <a href="#">Transactions</a></li>
+                    <li><i class="fas fa-bullseye"></i> <a href="#">Objectifs</a></li>
+                </ul>
             </nav>
         </aside>
 
-        <main class="content-grid">
+        <main class="content-grid" style="grid-template-columns: 2fr 1fr;">
             
-            <section class="connection-block card" style="grid-column: 1 / 3; display: flex; justify-content: space-between; align-items: center;">
-                <div>
-                    <h2>Statut de l'Agrégation de Données</h2>
-                    <p style="color: #95A5A6; font-size: 14px;">Utilisation de l'API sécurisée pour la lecture de vos soldes et transactions.</p>
+            <section class="card" style="grid-column: span 1;">
+                <h1 style="border-bottom: 2px solid var(--color-primary); padding-bottom: 15px; margin-bottom: 20px; color: var(--color-primary);">
+                    <i class="fas fa-wallet"></i> Détails des Comptes
+                </h1>
+
+                <h2 style="color: #6c757d; margin-top: 25px;">Comptes Courants et d'Épargne</h2>
+                <div class="account-list" style="margin-top: 15px;">
+                    <div class="account-item" style="border-bottom: 1px dashed #eee; padding: 10px 0; display: flex; justify-content: space-between;">
+                        <span><i class="fas fa-university"></i> Chèques RBC</span>
+                        <span class="value success" style="font-weight: bold;">$ 7,100.50</span>
+                    </div>
+                    <div class="account-item" style="border-bottom: 1px dashed #eee; padding: 10px 0; display: flex; justify-content: space-between;">
+                        <span><i class="fas fa-piggy-bank"></i> Épargne Mise de Fonds</span>
+                        <span class="value success" style="font-weight: bold;">$ 4,199.10</span>
+                    </div>
+                    <div class="account-item" style="padding: 10px 0; display: flex; justify-content: space-between; font-weight: bold;">
+                        <span>Total Liquidités</span>
+                        <span class="value primary-color">$ 11,299.60</span>
+                    </div>
                 </div>
-                <button class="action-button primary" style="width: 300px; padding: 15px; font-size: 16px;"><i class="fas fa-plus-circle"></i> Connecter un Compte Bancaire</button>
-            </section>
-            
-            <section class="institutions-table card" style="grid-column: 1 / 3; margin-top: 20px;">
-                <h2>Vos Institutions Connectées</h2>
-                <table style="width: 100%; border-collapse: collapse; text-align: left;">
-                    <thead>
-                        <tr style="background-color: #ECF0F1;">
-                            <th style="padding: 10px;">Institution</th>
-                            <th style="padding: 10px;">Jeton d'Accès (Token)</th>
-                            <th style="padding: 10px;">Dernière Synchro</th>
-                            <th style="padding: 10px;">Statut</th>
-                            <th style="padding: 10px;">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td style="padding: 10px;">**TD Canada Trust (Compte Principal)**</td><td style="padding: 10px; font-size: 12px;">token_td_xxxxxx...</td><td style="padding: 10px;">09/12/2025, 12:15</td><td style="padding: 10px;" class="success"><i class="fas fa-check-circle"></i> OK</td><td style="padding: 10px;"><button style="color: var(--color-alert);">Supprimer</button></td></tr>
-                        <tr><td style="padding: 10px;">**TD Canada Trust (VISA)**</td><td style="padding: 10px; font-size: 12px;">token_td_visa_x...</td><td style="padding: 10px;">09/12/2025, 12:15</td><td style="padding: 10px;" class="success"><i class="fas fa-check-circle"></i> OK</td><td style="padding: 10px;"><button style="color: var(--color-alert);">Supprimer</button></td></tr>
-                        <tr><td style="padding: 10px;">**Desjardins (Épargne REER)**</td><td style="padding: 10px; font-size: 12px;">token_des_reer_...</td><td style="padding: 10px;">08/12/2025, 14:00</td><td style="padding: 10px;" class="info"><i class="fas fa-clock"></i> OK</td><td style="padding: 10px;"><button style="color: var(--color-alert);">Supprimer</button></td></tr>
-                    </tbody>
-                </table>
-            </section>
-            
-            <section class="solde-detail card" style="grid-column: 1 / 2; margin-top: 20px;">
-                <h2>Soldes Détaillés des Comptes</h2>
-                <ul style="list-style: none; padding: 0;">
-                    <li style="margin-bottom: 10px; border-bottom: 1px dashed #ECF0F1; padding-bottom: 10px;">
-                        <span style="font-weight: bold;">Compte Chèques TD:</span> <span style="float: right; font-weight: bold; color: var(--color-secondary);">$ 1,850.50</span>
-                    </li>
-                    <li style="margin-bottom: 10px; border-bottom: 1px dashed #ECF0F1; padding-bottom: 10px;">
-                        <span style="font-weight: bold;">Compte Épargne TD:</span> <span style="float: right; font-weight: bold; color: var(--color-secondary);">$ 15,200.00</span>
-                    </li>
-                    <li style="margin-bottom: 10px;">
-                        <span style="font-weight: bold;">VISA TD (Crédit):</span> <span style="float: right; font-weight: bold; color: var(--color-alert);">- $ 750.90</span>
-                    </li>
-                </ul>
-                <p style="margin-top: 20px; font-size: 12px; color: #95A5A6;">* Les soldes sont affichés en temps réel (ou lors de la dernière synchronisation).</p>
+
+                <h2 style="color: #6c757d; margin-top: 35px;">Comptes d'Investissement</h2>
+                <div class="account-list" style="margin-top: 15px;">
+                    <div class="account-item" style="border-bottom: 1px dashed #eee; padding: 10px 0; display: flex; justify-content: space-between;">
+                        <span><i class="fas fa-chart-line"></i> CELI (Courtier A)</span>
+                        <span class="value success" style="font-weight: bold;">$ 35,000.00</span>
+                    </div>
+                    <div class="account-item" style="border-bottom: 1px dashed #eee; padding: 10px 0; display: flex; justify-content: space-between;">
+                        <span><i class="fas fa-user-tie"></i> REER (Employeur)</span>
+                        <span class="value success" style="font-weight: bold;">$ 25,000.00</span>
+                    </div>
+                    <div class="account-item" style="padding: 10px 0; display: flex; justify-content: space-between; font-weight: bold;">
+                        <span>Total Placements</span>
+                        <span class="value primary-color">$ 60,000.00</span>
+                    </div>
+                </div>
+
             </section>
 
-            <section class="transactions-log card" style="grid-column: 2 / 3; margin-top: 20px;">
-                <h2>Dernières Transactions Brutes</h2>
-                <ul style="list-style: none; padding: 0; max-height: 400px; overflow-y: auto;">
-                    <li style="margin-bottom: 8px; font-size: 13px;"><span style="color: #95A5A6; margin-right: 5px;">09 Déc</span> Achat VISA (Épicerie) <span style="float: right; color: var(--color-alert);">- $ 125.45</span></li>
-                    <li style="margin-bottom: 8px; font-size: 13px;"><span style="color: #95A5A6; margin-right: 5px;">08 Déc</span> Virement Épargne Auto <span style="float: right; color: var(--color-secondary);">+ $ 250.00</span></li>
-                    <li style="margin-bottom: 8px; font-size: 13px;"><span style="color: #95A5A6; margin-right: 5px;">07 Déc</span> Dépôt Salaire Principal <span style="float: right; color: var(--color-secondary);">+ $ 3,100.00</span></li>
-                    <li style="margin-bottom: 8px; font-size: 13px;"><span style="color: #95A5A6; margin-right: 5px;">07 Déc</span> Paiement Loyer Chèques <span style="float: right; color: var(--color-alert);">- $ 1,500.00</span></li>
-                    </ul>
-                <button class="view-all-button" style="margin-top: 10px;">Voir toutes les transactions</button>
+            <section class="card" style="grid-column: span 1;">
+                <h2><i class="fas fa-database"></i> Récapitulatif</h2>
+                <div style="padding: 10px 0;">
+                    <p style="margin-bottom: 15px;">La valeur de vos comptes reflète vos actifs. La somme de vos comptes est votre **Valeur Nette** (avant déduction des dettes).</p>
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <tr style="border-bottom: 1px solid #eee;">
+                            <td style="padding: 8px 0;">Total des Actifs</td>
+                            <td style="padding: 8px 0; text-align: right; font-weight: bold; color: var(--color-primary);">$ 71,299.60</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #eee;">
+                            <td style="padding: 8px 0;">Dettes Totales</td>
+                            <td style="padding: 8px 0; text-align: right; font-weight: bold; color: var(--color-danger);">$ 8,500.00</td>
+                        </tr>
+                        <tr style="font-size: 1.2em; background-color: #f8f9fa;">
+                            <td style="padding: 10px 0;">**Valeur Nette**</td>
+                            <td style="padding: 10px 0; text-align: right; font-weight: bold; color: var(--color-primary);">$ 62,799.60</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <h2 style="margin-top: 30px;"><i class="fas fa-tools"></i> Gestion</h2>
+                <button class="action-btn success" style="width: 100%; margin-top: 10px;"><i class="fas fa-plus"></i> Ajouter un Nouveau Compte</button>
+                <button class="action-btn info" style="width: 100%; margin-top: 10px;"><i class="fas fa-sync-alt"></i> Synchroniser les Données</button>
             </section>
-        
-    </main>
+        </main>
     </div>
 
 </body>
