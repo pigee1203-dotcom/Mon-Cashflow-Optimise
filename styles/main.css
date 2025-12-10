@@ -1,352 +1,316 @@
-/* ==================================== */
-/* 1. VARIABLES & RESET DE BASE         */
-/* ==================================== */
+/* ======================================= */
+/* 🌙 THEME SOMBRE (DARK MODE) ET VARIABLES */
+/* ======================================= */
+
 :root {
-    /* --- Couleurs du Thème --- */
-    --color-primary: #007BFF;
-    --color-secondary: #00CC78;
-    --color-background: #F4F7F9;
-    --color-text: #2C3E50;
-    --color-card-bg: #FFFFFF;
+    /* Couleurs principales du Thème Sombre */
+    --color-background-dark: #121212; /* Fond le plus sombre */
+    --color-background-medium: #1f1f1f; /* Fond principal de la grille */
+    --color-card-background: #2b2b2b; /* Fond des cartes/sections */
+    --color-sidebar-background: #1f1f1f; /* Fond de la barre latérale */
     
-    /* --- Indicateurs de Statut --- */
-    --color-success: #28A745;
-    --color-alert: #DC3545;
-    --color-info: #FFC107; /* Jaune/Orange pour l'information ou les conseils */
+    /* Couleurs de texte et de bordure */
+    --color-text-primary: #e0e0e0; /* Texte principal (très clair) */
+    --color-text-secondary: #aaaaaa; /* Texte secondaire/détails */
+    --color-border: #444444; /* Bordure discrète */
+
+    /* Couleurs d'accentuation (conservées pour le contraste) */
+    --color-primary: #66b3ff; /* Bleu clair (pour les valeurs importantes) */
+    --color-secondary: #ff7f50; /* Orange corail (pour les boutons secondaires) */
+    --color-success: #10b981; /* Vert (succès/gain) */
+    --color-alert: #ef4444; /* Rouge (dépense/perte/alerte) */
 }
 
-/* Réinitialisation de base */
-* {
-    box-sizing: border-box; 
-}
+/* ======================================= */
+/* 🎨 STYLES DE BASE ET MISE EN PAGE */
+/* ======================================= */
 
 body {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    color: var(--color-text);
-    background-color: var(--color-background);
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
+    background-color: var(--color-background-dark); /* Fond le plus sombre */
+    color: var(--color-text-primary); /* Texte par défaut clair */
+    display: flex;
+    flex-direction: column;
     min-height: 100vh;
 }
 
-/* ==================================== */
-/* 2. MISE EN PAGE PRINCIPALE (GRID)    */
-/* ==================================== */
-.main-layout {
-    display: flex; 
-    width: 100%;
-    max-width: 1600px; 
-    margin: 0 auto; 
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.2s;
 }
 
-.content-grid {
-    flex-grow: 1; 
-    display: grid;
-    /* CHANGEMENT: Passage à 3 colonnes pour mieux organiser les 15 cartes */
-    grid-template-columns: repeat(3, 1fr); 
-    gap: 25px; 
-    padding: 25px;
-    padding-top: 10px;
-    min-width: 0; 
-    grid-auto-rows: minmax(min-content, max-content); 
+a:hover {
+    color: #99ccff;
 }
 
-/* ==================================== */
-/* 3. EN-TÊTE (HEADER)                  */
-/* ==================================== */
+.primary-color {
+    color: var(--color-primary);
+}
+
+.success {
+    color: var(--color-success);
+}
+
+.debit {
+    color: var(--color-alert); /* Utilisé pour les débits/dépenses */
+}
+
+
+/* ======================================= */
+/* ➡️ HEADER (En-tête) */
+/* ======================================= */
+
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 40px;
-    background-color: var(--color-card-bg);
-    border-bottom: 1px solid #EAECEE;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    width: 100%;
-    margin-bottom: 0; 
+    padding: 20px 30px;
+    background-color: var(--color-sidebar-background); /* L'en-tête partage le fond de la sidebar */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.net-worth span:first-child {
+    font-size: 0.9em;
+    color: var(--color-text-secondary);
 }
 
 .net-value {
-    color: var(--color-text); 
-    font-size: 38px;
+    margin: 5px 0 0 0;
+    font-size: 2.5em;
     font-weight: 700;
-    margin-top: 5px;
 }
 
 .net-indicator {
-    font-size: 14px;
+    font-size: 0.8em;
     font-weight: bold;
-    padding: 4px 8px;
-    border-radius: 4px;
 }
 
-/* ==================================== */
-/* 4. SIDEBAR (NAVIGATION)              */
-/* ==================================== */
+.sync-button {
+    background-color: var(--color-primary);
+    color: var(--color-background-dark); /* Texte sombre sur bouton clair */
+    padding: 10px 15px;
+    border-radius: 6px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.2s;
+}
+
+.sync-button:hover {
+    background-color: #4da6ff;
+}
+
+.sync-button i {
+    margin-right: 8px;
+}
+
+/* ======================================= */
+/* 📐 MISE EN PAGE PRINCIPALE (SIDEBAR + CONTENT) */
+/* ======================================= */
+
+.main-layout {
+    display: flex;
+    flex-grow: 1;
+}
+
+/* ======================================= */
+/* 🧭 ASIDE (Barre Latérale) */
+/* ======================================= */
+
 .sidebar {
-    background-color: var(--color-card-bg); 
-    padding: 20px;
-    flex-shrink: 0; 
     width: 250px;
-    min-height: 100vh;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05); 
-    border-right: 1px solid #EAECEE;
+    background-color: var(--color-sidebar-background);
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-right: 1px solid var(--color-border);
 }
 
 .main-nav ul {
     list-style: none;
     padding: 0;
-    margin-bottom: 30px;
+    margin: 0;
 }
 
-/* Alignement vertical de l'icône et du texte */
-.main-nav ul li {
+.main-nav li {
+    margin: 0;
+}
+
+.main-nav a {
     display: flex;
     align-items: center;
-    margin-bottom: 8px; 
+    padding: 12px 30px;
+    color: var(--color-text-primary);
+    font-weight: 500;
+    transition: background-color 0.2s, color 0.2s;
 }
 
-/* STYLES EFFET PASTILLE VITRE */
-.main-nav a {
-    text-decoration: none;
-    color: var(--color-text);
-    padding: 10px 15px; 
-    display: block;
-    border-radius: 20px; 
-    transition: all 0.2s ease-in-out;
-    font-weight: 600;
-    flex-grow: 1;
-
-    /* Effet "Vitre" (Glassy) */
-    background-color: rgba(255, 255, 255, 0.5); 
-    backdrop-filter: blur(5px); 
-    
-    /* Effet Glossy (Neomorphisme doux) */
-    box-shadow: 
-        3px 3px 6px rgba(0, 0, 0, 0.1), 
-        -3px -3px 6px rgba(255, 255, 255, 0.6); 
-}
-
-/* Changement de couleur au survol (hover) */
-.main-nav a:hover, .main-nav .active-link {
-    background-color: rgba(255, 255, 255, 0.8); 
-    color: var(--color-primary); 
-    box-shadow: 
-        4px 4px 8px rgba(0, 0, 0, 0.15), 
-        -4px -4px 8px rgba(255, 255, 255, 0.8);
-    transform: translateY(-1px); 
+.main-nav a:hover {
+    background-color: #383838; /* Gris foncé au survol */
+    color: var(--color-primary);
 }
 
 .main-nav i {
-    margin-right: 10px;
-    color: var(--color-primary); 
-    line-height: 1; 
-}
-
-.quick-actions h3 {
-    margin-top: 0;
-    padding-top: 15px;
-    border-top: 1px solid #EAECEE;
-}
-
-.quick-actions button {
-    width: 100%;
-    margin-bottom: 10px;
-}
-
-/* ==================================== */
-/* 5. CARTES ET COMPOSANTS              */
-/* ==================================== */
-.card {
-    background-color: var(--color-card-bg); 
-    padding: 25px;
-    border-radius: 12px; 
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); 
-    border: 1px solid #DCE1E7; 
-    height: fit-content; 
-    margin: 0; 
-}
-
-h2 {
-    color: var(--color-text);
-    margin-top: 0;
-    border-bottom: 1px dashed #EAECEE;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-    font-size: 18px;
-}
-
-/* Styles des boutons d'action */
-.action-button {
-    padding: 10px 15px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-weight: bold;
+    margin-right: 15px;
+    width: 20px;
     text-align: center;
 }
 
-.action-button i {
-    margin-right: 5px;
+.active-link {
+    background-color: #383838; 
+    border-left: 4px solid var(--color-primary); 
+    padding-left: 26px !important;
+    color: var(--color-primary) !important;
 }
 
-.action-button.primary, .action-button.primary-green {
-    color: white;
-    border: none;
+.active-link:hover {
+    background-color: #383838 !important;
 }
 
-.action-button.primary {
-    background-color: var(--color-primary);
+.bottom-menu {
+    padding: 15px 30px;
+    border-top: 1px solid var(--color-border);
 }
 
-.action-button.primary:hover {
-    background-color: #0069D9;
-}
-
-.action-button.secondary {
-    background-color: #E9ECEF;
-    color: var(--color-text);
-    border: 1px solid #CED4DA;
-}
-
-.action-button.secondary:hover {
-    background-color: #D3D9DF;
-}
-
-/* Bouton pour Voir tout */
-.view-all-button {
-    background: none;
-    border: none;
-    color: var(--color-primary);
-    text-decoration: none;
-    padding: 5px 0;
-    margin-top: 10px;
+.bottom-menu a {
     display: block;
-    text-align: right;
-    font-size: 14px;
-    cursor: pointer;
+    color: var(--color-text-secondary);
+    font-size: 0.9em;
 }
 
-/* Styles de Statut */
-.success {
-    color: var(--color-success) !important; 
-}
-.alert {
-    color: var(--color-alert) !important;
-}
-.info {
-    color: var(--color-info) !important;
-}
 
-/* Style de la table (Comptes) */
-.institutions-table td {
-    border-bottom: 1px solid #EEEEEE; 
+/* ======================================= */
+/* 📦 MAIN CONTENT (Grille de Contenu) */
+/* ======================================= */
+
+.content-grid {
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 30px;
+    background-color: var(--color-background-medium); /* Fond intermédiaire */
 }
 
-/* ==================================== */
-/* 6. CORRECTIONS SPÉCIFIQUES           */
-/* ==================================== */
-/* Correction pour le lien "Retour Dashboard" sur la page comptes.html */
-.sync-button {
-    text-decoration: none;
-    color: var(--color-text);
-    padding: 10px 15px;
-    border: 1px solid #EAECEE;
-    border-radius: 8px;
-    transition: background-color 0.2s;
+.card {
+    background-color: var(--color-card-background); /* Fond des cartes */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--color-border);
 }
 
-.sync-button:hover {
-    background-color: #F0F0F0;
-}
-
-/* ==================================== */
-/* 7. RESPONSIVE DESIGN & LAYOUT (3 Colonnes)*/
-/* ==================================== */
-
-/* Priorité: Ces cartes prennent 2 colonnes sur 3 pour être très visibles */
-.net-result-card {
-    grid-column: span 2; 
-}
-
-/* Le graphique de dépenses est également large */
-.expense-breakdown-card {
-    grid-column: span 2; 
-}
-
-/* L'astuce d'optimisation (bloc d'action) est également large */
-.advice-section {
-    grid-column: span 2;
-}
-
-/* -- Gestion des Breakpoints -- */
-
-/* Ordinateurs portables / Ecrans légèrement plus petits (passage à 2 colonnes) */
-@media (max-width: 1400px) {
-    .content-grid {
-        grid-template-columns: repeat(2, 1fr); /* Revenir à 2 colonnes */
-    }
-    
-    /* Les éléments importants doivent toujours prendre toute la largeur de 2 colonnes */
-    .net-result-card, 
-    .expense-breakdown-card,
-    .advice-section {
-        grid-column: span 2; 
-    }
-}
-
-/* Ecrans de tablette (on conserve 2 colonnes) */
-@media (max-width: 1200px) { 
-    .main-layout {
-        display: block;
-        max-width: 900px; 
-    }
-    .sidebar {
-        width: 100%;
-        min-height: auto;
-        box-shadow: none;
-        border-right: none;
-        padding: 10px 25px;
-    }
-    .content-grid {
-        padding: 10px 25px 25px 25px; 
-    }
-}
-
-/* Téléphones (passage à 1 colonne) */
-@media (max-width: 600px) {
-    .content-grid {
-        grid-template-columns: 1fr; 
-    }
-    /* En mode 1 colonne, tout prend 1 colonne */
-    .net-result-card, 
-    .expense-breakdown-card,
-    .advice-section {
-        grid-column: span 1; 
-    }
-}
-
-/* ==================================== */
-/* 8. STYLES SPÉCIFIQUES AUX OUTILS DYNAMIQUES */
-/* ==================================== */
-
-.daily-advice-card {
-    border: 2px solid var(--color-info); 
-}
-
-.daily-advice-card h2 {
-    color: var(--color-info); 
-}
-
-/* Style spécifique pour la zone de conseil (pour le changement dynamique) */
-.daily-advice-card .advice-box {
-    background-color: rgba(255, 193, 7, 0.1); 
-    border-left: 5px solid var(--color-info); 
-    padding: 15px;
-    border-radius: 8px;
+.card h2 {
+    margin-top: 0;
+    font-size: 1.2em;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 10px;
     margin-bottom: 15px;
 }
 
-.daily-advice-card .advice-box p {
-    margin: 0;
+.card h2 i {
+    margin-right: 10px;
+    color: var(--color-primary);
+}
+
+.card p {
+    color: var(--color-text-secondary);
+    margin-bottom: 10px;
+}
+
+
+/* ======================================= */
+/* ⚡ BOUTONS D'ACTION (Action Card) */
+/* ======================================= */
+
+.action-card {
+    grid-column: span 3; /* Utilise toute la largeur sur la première ligne */
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.action-card h2 {
+    flex: 1 1 100%;
+}
+
+.action-btn {
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-right: 15px;
+    transition: opacity 0.2s, transform 0.1s;
+}
+
+.action-btn i {
+    margin-right: 5px;
+}
+
+.action-btn.success {
+    background-color: var(--color-success);
+    color: var(--color-background-dark);
+}
+
+.action-btn.primary {
+    background-color: var(--color-primary);
+    color: var(--color-background-dark);
+}
+
+.action-btn.secondary {
+    background-color: var(--color-secondary);
+    color: var(--color-background-dark);
+}
+
+.action-btn:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+/* ======================================= */
+/* 📊 GRAPHIQUES ET LÉGENDES */
+/* ======================================= */
+
+.asset-legend li {
+    color: var(--color-text-secondary);
+}
+
+/* ======================================= */
+/* 🚀 BOUTONS VOIR TOUT */
+/* ======================================= */
+
+.view-all-button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 5px 10px;
+    font-size: 0.9em;
+    font-weight: bold;
+    background-color: #383838;
+    border-radius: 5px;
+    color: var(--color-primary);
+}
+
+/* ======================================= */
+/* 📉 BARRES DE PROGRÈS */
+/* ======================================= */
+
+.progress-bar-container {
+    background-color: #444444;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    text-align: right;
+    color: var(--color-background-dark);
+    font-weight: bold;
 }
