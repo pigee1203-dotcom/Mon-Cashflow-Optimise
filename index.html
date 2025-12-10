@@ -3,9 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Budget - Dashboard</title>
+    <title>Dashboard Financier</title>
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Styles pour les légendes du graphique */
+        .asset-legend {
+            list-style: none;
+            padding: 0;
+            margin-top: 15px;
+        }
+        .asset-legend li {
+            margin-bottom: 8px;
+            font-size: 1.05em;
+        }
+        .asset-legend span {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+    </style>
 </head>
 <body>
 
@@ -15,7 +34,7 @@
             <h1 class="net-value primary-color">$ 71,299.60</h1>
             <span class="net-indicator success">↑ 1.25%</span>
         </div>
-        <a href="styles/centre-apprentissage.html" class="sync-button"><i class="fas fa-graduation-cap"></i> Voir le Centre d'Apprentissage</a>
+        <a href="centre-apprentissage.html" class="sync-button"><i class="fas fa-graduation-cap"></i> Voir le Centre d'Apprentissage</a>
     </header>
 
     <div class="main-layout">
@@ -25,11 +44,11 @@
                 <ul>
                     <li><i class="fas fa-chart-line"></i> <a href="index.html" class="active-link">Dashboard</a></li> 
                     <li><i class="fas fa-wallet"></i> <a href="server/comptes.html">Comptes</a></li>
-                    <li><i class="fas fa-graduation-cap"></i> <a href="styles/centre-apprentissage.html">Apprentissage</a></li>
+                    <li><i class="fas fa-graduation-cap"></i> <a href="centre-apprentissage.html">Apprentissage</a></li>
                     <li><i class="fas fa-hand-holding-usd"></i> <a href="dettes.html">Dettes & Stratégie</a></li>
                     <li><i class="fas fa-piggy-bank"></i> <a href="placements.html">Placements</a></li>
-                    <li><i class="fas fa-exchange-alt"></i> <a href="#">Transactions</a></li>
-                    <li><i class="fas fa-bullseye"></i> <a href="#">Objectifs</a></li>
+                    <li><i class="fas fa-exchange-alt"></i> <a href="transactions.html">Transactions</a></li>
+                    <li><i class="fas fa-bullseye"></i> <a href="objectifs.html">Objectifs</a></li>
                 </ul>
             </nav>
             <div class="bottom-menu">
@@ -39,107 +58,80 @@
 
         <main class="content-grid">
             
-            <section class="card quick-actions">
+            <section class="card action-card">
                 <h2><i class="fas fa-bolt"></i> Actions Rapides</h2>
-                <div class="action-buttons">
-                    <button class="action-btn success"><i class="fas fa-plus"></i> Nouvelle Transaction</button>
-                    <button class="action-btn primary"><i class="fas fa-piggy-bank"></i> Vers Placements</button>
-                    <button class="action-btn info"><i class="fas fa-university"></i> Rembourser Dette</button>
-                </div>
+                <button class="action-btn success"><i class="fas fa-plus"></i> Nouvelle Transaction</button>
+                <button class="action-btn primary"><i class="fas fa-piggy-bank"></i> Vers Placements</button>
+                <button class="action-btn secondary"><i class="fas fa-credit-card"></i> Rembourser Dette</button>
             </section>
 
-            <section class="card asset-summary">
-                <h2><i class="fas fa-chart-pie"></i> Sommaire des Actifs</h2>
-                <div class="asset-list">
-                    <div class="asset-item">
-                        <span>Comptes Chèques/Épargne</span>
-                        <span class="value">$ 11,299.60</span>
-                    </div>
-                    <div class="asset-item">
-                        <span>Investissements (CELI/REER)</span>
-                        <span class="value">$ 60,000.00</span>
-                    </div>
-                    <div class="asset-item total">
-                        <span>TOTAL</span>
-                        <span class="value primary-color">$ 71,299.60</span>
-                    </div>
-                </div>
+            <section class="card asset-summary-card">
+                <h2><i class="fas fa-briefcase"></i> Sommaire des Actifs</h2>
+                <p>Comptes Chèques/Épargne $ 11,299.60</p>
+                <p>Investissements (CELI/REER) $ 60,000.00</p>
+                <h3 class="primary-color">TOTAL $ 71,299.60</h3>
             </section>
 
-            <section class="card debt-summary">
-                <h2><i class="fas fa-credit-card"></i> Dette et Endettement</h2>
-                <div class="debt-status">
-                    <span class="debt-title">Utilisation du Crédit</span>
-                    <span class="debt-value success">12% (Excellent)</span>
-                    <div class="progress-bar-container">
-                        <div class="progress-bar success" style="width: 12%;"></div>
-                    </div>
-                </div>
-                <div class="debt-list">
-                    <div class="debt-item">
-                        <span>Marge de Crédit</span>
-                        <span class="value">$ 8,500.00</span>
-                    </div>
-                </div>
-            </section>
-
-            <section class="card activity-log">
-                <h2><i class="fas fa-history"></i> Activité Récente</h2>
-                <ul>
-                    <li><span class="date">2025-12-09</span> <span class="description success">+ $250.00 (Salaire)</span></li>
-                    <li><span class="date">2025-12-08</span> <span class="description info">-$45.50 (Épicerie)</span></li>
-                    <li><span class="date">2025-12-05</span> <span class="description primary">-$500.00 (Transfert CELI)</span></li>
-                </ul>
-            </section>
-
-            <section class="card goal-progress" style="grid-column: span 2;">
-                <h2><i class="fas fa-bullseye"></i> Progression des Objectifs (Maison)</h2>
-                <div class="goal-item">
-                    <span>Mise de Fonds (Cible : $30,000)</span>
-                    <span class="value">$ 14,500.00 (48%)</span>
-                    <div class="progress-bar-container">
-                        <div class="progress-bar info" style="width: 48%;"></div>
-                    </div>
-                </div>
+            <section class="card debt-card">
+                <h2><i class="fas fa-money-check-alt"></i> Dette et Endettement</h2>
+                <p>Utilisation du Crédit <span class="success">12% (Excellent)</span></p>
+                <p>Marge de Crédit $ 8,500.00</p>
+                <a href="dettes.html" class="view-all-button">Voir la stratégie de dette</a>
             </section>
             
-            <section class="card debt-card">
-                <h2><i class="fas fa-credit-card"></i> Carte VISA TD</h2>
-                <div style="text-align: center; padding: 15px 0;">
-                    <span style="font-size: 24px; font-weight: bold; color: var(--color-alert); display: block;">- $ 750.90</span>
-                    <a href="#" class="view-all-button" style="margin-top: 20px;">Gérer les connexions et voir les détails</a>
-                </div>
-            </section>
+            <section class="card" style="grid-column: span 1;">
+                <h2><i class="fas fa-chart-pie"></i> Répartition des Actifs</h2>
+                
 
-            <section class="card goal-simulator-card">
-                <h2><i class="fas fa-calculator"></i> Simulateur d'Objectifs</h2>
-                <p>Estimez l'impact de vos versements sur vos objectifs à long terme (Retraite, Achat Maison, etc.).</p>
-                <div style="background-color: #f7f9fd; border-radius: 8px; padding: 15px; margin: 15px 0;">
-                    <p>Si vous ajoutez **$100.00** à votre épargne-retraite.</p>
-                    <p style="font-weight: bold; color: var(--color-primary);">Objectif atteint 8 mois plus tôt !</p>
-                </div>
-                <button class="action-btn primary"><i class="fas fa-chart-bar"></i> Lancer la simulation</button>
-            </section>
+[Image of a pie chart showing asset allocation]
 
-            <section class="card expense-card">
-                <h2><i class="fas fa-shopping-bag"></i> Dépense Non-Essentielle</h2>
-                <div style="text-align: center; padding: 15px 0;">
-                    <span style="font-size: 40px; color: var(--color-danger); display: block; margin-bottom: 10px;">$</span>
-                    <p>Votre moyenne mensuelle actuelle est de **$1,500.00**.</p>
-                    <a href="#" class="view-all-button">Voir les détails des catégories</a>
-                </div>
-            </section>
-
-            <section class="card payment-card">
-                <h2><i class="fas fa-bell"></i> Paiements à Venir (7 Jours)</h2>
-                <ul>
-                    <li style="color: var(--color-alert);"><i class="fas fa-circle-exclamation"></i> Paiement Minimum Carte RBC dû le 12 Décembre</li>
-                    <li><i class="fas fa-dollar-sign"></i> Loyer Automatique le 15 Décembre</li>
+                
+                <ul class="asset-legend">
+                    <li><span style="background-color: #3b82f6;"></span> Actions (30%)</li>
+                    <li><span style="background-color: #f59e0b;"></span> Obligations (45%)</li>
+                    <li><span style="background-color: #10b981;"></span> Liquidités (20%)</li>
+                    <li><span style="background-color: #ef4444;"></span> Autres (5%)</li>
                 </ul>
-                <a href="#" class="view-all-button">Voir le calendrier complet</a>
+                <a href="placements.html" class="view-all-button">Détail des placements</a>
             </section>
 
+            <section class="card" style="grid-column: span 2;">
+                <h2><i class="fas fa-money-bill-wave"></i> Budget Mensuel (Novembre)</h2>
+                <div style="display: flex; justify-content: space-around; text-align: center; margin-bottom: 15px;">
+                    <div>
+                        <span style="color: var(--color-success); font-weight: bold; display: block;">Revenus</span>
+                        <span style="font-size: 1.5em;">$ 4,500.00</span>
+                    </div>
+                    <div>
+                        <span style="color: var(--color-alert); font-weight: bold; display: block;">Dépenses</span>
+                        <span style="font-size: 1.5em;">$ 3,120.50</span>
+                    </div>
+                    <div>
+                        <span style="color: var(--color-primary); font-weight: bold; display: block;">Épargne Nette</span>
+                        <span style="font-size: 1.5em;">$ 1,379.50</span>
+                    </div>
+                </div>
+                <div class="progress-bar-container" style="height: 15px; margin-top: 5px;">
+                    <div class="progress-bar" style="width: 30.6%; background-color: var(--color-success); padding-right: 0;"></div>
+                </div>
+                <p style="text-align: center; margin-top: 5px; font-size: 0.9em;">30.6% de votre revenu est épargné/investi.</p>
+                <a href="transactions.html" class="view-all-button">Analyser les transactions</a>
+            </section>
 
+            <section class="card" style="grid-column: span 2;">
+                <h2><i class="fas fa-bullseye"></i> Progression des Objectifs (Maison)</h2>
+                <p>Mise de Fonds (Cible: $30,000) $ 14,500.00 (48%)</p>
+                <a href="objectifs.html" class="view-all-button">Gérer les objectifs</a>
+            </section>
+
+            <section class="card" style="grid-column: span 1;">
+                <h2><i class="fas fa-clock"></i> Activité Récente</h2>
+                <ul style="list-style: none; padding: 0;">
+                    <li>2025-12-09 +$250.00 (<span class="success">Salaire</span>)</li>
+                    <li>2025-12-08 -$45.50 (<span class="debit">Épicerie</span>)</li>
+                    <li>2025-12-05 -$500.00 (<span class="debit">Transfert CELI</span>)</li>
+                </ul>
+            </section>
         </main>
     </div>
 
