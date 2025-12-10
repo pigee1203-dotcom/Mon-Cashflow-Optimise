@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Centre d'Apprentissage Financier</title>
-    <link rel="stylesheet" href="main.css"> 
+    <title>Mon Budget - Dashboard</title>
+    <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -15,7 +15,7 @@
             <h1 class="net-value primary-color">$ 71,299.60</h1>
             <span class="net-indicator success">↑ 1.25%</span>
         </div>
-        <a href="../index.html" class="sync-button"><i class="fas fa-arrow-left"></i> Retour au Dashboard</a>
+        <a href="styles/centre-apprentissage.html" class="sync-button"><i class="fas fa-graduation-cap"></i> Voir le Centre d'Apprentissage</a>
     </header>
 
     <div class="main-layout">
@@ -23,72 +23,86 @@
         <aside class="sidebar">
             <nav class="main-nav">
                 <ul>
-                    <li><i class="fas fa-chart-line"></i> <a href="../index.html">Dashboard</a></li> 
-                    <li><i class="fas fa-wallet"></i> <a href="../server/comptes.html">Comptes</a></li>
-                    <li><i class="fas fa-graduation-cap"></i> <a href="#" class="active-link">Apprentissage</a></li>
-                    <li><i class="fas fa-hand-holding-usd"></i> <a href="../dettes.html">Dettes & Stratégie</a></li>
-                    <li><i class="fas fa-piggy-bank"></i> <a href="../placements.html">Placements</a></li>
+                    <li><i class="fas fa-chart-line"></i> <a href="index.html" class="active-link">Dashboard</a></li> 
+                    <li><i class="fas fa-wallet"></i> <a href="server/comptes.html">Comptes</a></li>
+                    <li><i class="fas fa-graduation-cap"></i> <a href="styles/centre-apprentissage.html">Apprentissage</a></li>
+                    <li><i class="fas fa-hand-holding-usd"></i> <a href="dettes.html">Dettes & Stratégie</a></li>
+                    <li><i class="fas fa-piggy-bank"></i> <a href="placements.html">Placements</a></li>
                     <li><i class="fas fa-exchange-alt"></i> <a href="#">Transactions</a></li>
                     <li><i class="fas fa-bullseye"></i> <a href="#">Objectifs</a></li>
                 </ul>
             </nav>
+            <div class="bottom-menu">
+                <a href="#"><i class="fas fa-cog"></i> Paramètres</a>
+            </div>
         </aside>
 
-        <main class="content-grid" style="grid-template-columns: 1fr;">
+        <main class="content-grid">
             
-            <section class="card" style="grid-column: span 1; padding: 30px;">
-                <h1 style="border-bottom: 2px solid var(--color-primary); padding-bottom: 15px; margin-bottom: 30px; color: var(--color-primary);">
-                    <i class="fas fa-graduation-cap"></i> Centre d'Apprentissage Financier
-                </h1>
-                <p>Bienvenue dans votre ressource complète pour maximiser vos avantages fiscaux et planifier vos grands objectifs.</p>
-            </section>
-
-            <section class="card" style="grid-column: span 1;">
-                <h2>⭐ CELI : Le Compte d'Épargne Libre d'Impôt</h2>
-                <div style="background-color: #E6F7E9; padding: 20px; border-radius: 8px;">
-                    <p style="font-weight: bold; color: var(--color-success); font-size: 1.1em;"><i class="fas fa-dollar-sign"></i> Avantage Principal :</p>
-                    <blockquote style="border-left: 5px solid var(--color-success); padding-left: 15px; margin: 10px 0; font-style: italic;">
-                        Tous les gains (intérêts, dividendes, plus-values) générés dans un CELI sont entièrement **NON imposables**, même lors du retrait.
-                    </blockquote>
-                    <p>
-                        **Conseil du Jour :** Vous pouvez retirer des fonds à tout moment sans impact fiscal. Les montants retirés s'ajoutent à vos droits de cotisation l'année suivante.
-                    </p>
-                    <p style="margin-top: 10px;">
-                        **Votre Droit (Estimé) :** **$5,000.00** de contribution disponible.
-                    </p>
+            <section class="card quick-actions">
+                <h2><i class="fas fa-bolt"></i> Actions Rapides</h2>
+                <div class="action-buttons">
+                    <button class="action-btn success"><i class="fas fa-plus"></i> Nouvelle Transaction</button>
+                    <button class="action-btn primary"><i class="fas fa-piggy-bank"></i> Vers Placements</button>
+                    <button class="action-btn info"><i class="fas fa-university"></i> Rembourser Dette</button>
                 </div>
             </section>
 
-            <section class="card" style="grid-column: span 1;">
-                <h2>👴 REER : Le Régime pour l'Épargne-Retraite</h2>
-                <div style="background-color: #F0F8FF; padding: 20px; border-radius: 8px;">
-                    <p style="font-weight: bold; color: var(--color-primary); font-size: 1.1em;"><i class="fas fa-balance-scale"></i> Avantage Principal :</p>
-                    <blockquote style="border-left: 5px solid var(--color-primary); padding-left: 15px; margin: 10px 0; font-style: italic;">
-                        Les cotisations sont **déductibles de votre revenu** imposable, vous procurant un remboursement d'impôt immédiat. L'impôt est différé jusqu'au retrait (à la retraite).
-                    </blockquote>
-                    <p>
-                        **Conseil du Jour :** Utilisez le REER pour réduire votre revenu actuel si vous êtes dans une tranche d'imposition élevée. Utilisez le **RAP (Régime d'Accès à la Propriété)** pour un premier achat.
-                    </p>
-                    <p style="margin-top: 10px;">
-                        **Votre Droit (Estimé) :** **$12,500.00** de contribution disponible.
-                    </p>
+            <section class="card asset-summary">
+                <h2><i class="fas fa-chart-pie"></i> Sommaire des Actifs</h2>
+                <div class="asset-list">
+                    <div class="asset-item">
+                        <span>Comptes Chèques/Épargne</span>
+                        <span class="value">$ 11,299.60</span>
+                    </div>
+                    <div class="asset-item">
+                        <span>Investissements (CELI/REER)</span>
+                        <span class="value">$ 60,000.00</span>
+                    </div>
+                    <div class="asset-item total">
+                        <span>TOTAL</span>
+                        <span class="value primary-color">$ 71,299.60</span>
+                    </div>
                 </div>
             </section>
 
-            <section class="card" style="grid-column: span 1;">
-                <h2>🏠 Guide Complet : Préparer l'Achat de Votre Maison</h2>
-                <div style="background-color: #FFF3CD; padding: 20px; border-radius: 8px;">
-                    <p style="font-weight: bold; color: var(--color-info); font-size: 1.1em;"><i class="fas fa-calculator"></i> 3 Étapes Cruciales :</p>
-                    <ol style="margin-top: 10px;">
-                        <li>**Mise de Fonds :** Visez 20% du prix d'achat pour éviter l'assurance-prêt (SCHL). Utilisez le CELI ou le RAP (via REER) pour accélérer.</li>
-                        <li>**Ratio d'Endettement (ATD/ADB) :** Les banques regardent votre capacité d'emprunt. Une gestion de dette faible (comme votre usage de crédit à 12%) est excellente.</li>
-                        <li>**Pré-Approbation Hypothécaire :** Cela fixe votre taux pour 90-120 jours et établit votre véritable capacité d'emprunt (estimée ici à **$350,000**).</li>
-                    </ol>
-                    <p style="margin-top: 15px; font-style: italic;">
-                        **Conseil :** Débuter l'épargne via le CELI ou le REER (RAP) doit être votre priorité actuelle.
-                    </p>
+            <section class="card debt-summary">
+                <h2><i class="fas fa-credit-card"></i> Dette et Endettement</h2>
+                <div class="debt-status">
+                    <span class="debt-title">Utilisation du Crédit</span>
+                    <span class="debt-value success">12% (Excellent)</span>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar success" style="width: 12%;"></div>
+                    </div>
+                </div>
+                <div class="debt-list">
+                    <div class="debt-item">
+                        <span>Marge de Crédit</span>
+                        <span class="value">$ 8,500.00</span>
+                    </div>
                 </div>
             </section>
+
+            <section class="card activity-log">
+                <h2><i class="fas fa-history"></i> Activité Récente</h2>
+                <ul>
+                    <li><span class="date">2025-12-09</span> <span class="description success">+ $250.00 (Salaire)</span></li>
+                    <li><span class="date">2025-12-08</span> <span class="description info">-$45.50 (Épicerie)</span></li>
+                    <li><span class="date">2025-12-05</span> <span class="description primary">-$500.00 (Transfert CELI)</span></li>
+                </ul>
+            </section>
+
+            <section class="card goal-progress" style="grid-column: span 2;">
+                <h2><i class="fas fa-bullseye"></i> Progression des Objectifs (Maison)</h2>
+                <div class="goal-item">
+                    <span>Mise de Fonds (Cible : $30,000)</span>
+                    <span class="value">$ 14,500.00 (48%)</span>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar info" style="width: 48%;"></div>
+                    </div>
+                </div>
+            </section>
+
         </main>
     </div>
 
