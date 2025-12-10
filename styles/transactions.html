@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transactions Détaillées</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Styles spécifiques pour le tableau des transactions */
+        .transactions-table {
+            width: 100%;
+            border-collapse: separate; /* Permet les bordures arrondies */
+            border-spacing: 0;
+            margin-top: 20px;
+        }
+
+        .transactions-table th, .transactions-table td {
+            padding: 12px 15px;
+            text-align: left;
+        }
+
+        .transactions-table th {
+            background-color: var(--color-background);
+            color: var(--color-text);
+            font-weight: 600;
+            border-bottom: 2px solid #EAECEE;
+        }
+
+        .transactions-table tbody tr {
+            border-bottom: 1px solid #F0F0F0;
+            transition: background-color 0.2s;
+        }
+
+        .transactions-table tbody tr:hover {
+            background-color: #F8F8F8;
+        }
+
+        .transactions-table tbody tr:last-child {
+            border-bottom: none;
+        }
+
+        /* Styles pour les montants */
+        .credit { color: var(--color-success); font-weight: bold; }
+        .debit { color: var(--color-alert); font-weight: bold; }
+
+        /* Styles pour la barre de filtres */
+        .filter-bar {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            align-items: center;
+        }
+
+        .filter-bar input[type="text"], .filter-bar select {
+            padding: 10px;
+            border: 1px solid #DCE1E7;
+            border-radius: 8px;
+            flex-grow: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="net-worth">
+            <span>Valeur Nette Totale (Simulée)</span>
+            <h1 class="net-value primary-color">$ 71,299.60</h1>
+            <span class="net-indicator success">↑ 1.25%</span>
+        </div>
+        <a href="styles/centre-apprentissage.html" class="sync-button"><i class="fas fa-graduation-cap"></i> Voir le Centre d'Apprentissage</a>
+    </header>
+
+    <div class="main-layout">
+        
+        <aside class="sidebar">
+            <nav class="main-nav">
+                <ul>
+                    <li><i class="fas fa-chart-line"></i> <a href="index.html">Dashboard</a></li> 
+                    <li><i class="fas fa-wallet"></i> <a href="server/comptes.html">Comptes</a></li>
+                    <li><i class="fas fa-graduation-cap"></i> <a href="styles/centre-apprentissage.html">Apprentissage</a></li>
+                    <li><i class="fas fa-hand-holding-usd"></i> <a href="dettes.html">Dettes & Stratégie</a></li>
+                    <li><i class="fas fa-piggy-bank"></i> <a href="placements.html">Placements</a></li>
+                    <li><i class="fas fa-exchange-alt"></i> <a href="transactions.html" class="active-link">Transactions</a></li>
+                    <li><i class="fas fa-bullseye"></i> <a href="objectifs.html">Objectifs</a></li>
+                </ul>
+            </nav>
+            <div class="bottom-menu">
+                <a href="#"><i class="fas fa-cog"></i> Paramètres</a>
+            </div>
+        </aside>
+
+        <main class="content-grid" style="grid-template-columns: repeat(3, 1fr);">
+            
+            <section class="card" style="grid-column: span 3; text-align: center;">
+                <h1 style="border-bottom: 2px solid var(--color-primary); padding-bottom: 15px; margin-bottom: 20px; color: var(--color-text);">
+                    <i class="fas fa-exchange-alt"></i> Transactions de Décembre 2025
+                </h1>
+                <div style="display: flex; justify-content: space-around; font-size: 1.1em;">
+                    <div>
+                        <span style="color: var(--color-success); font-weight: bold; display: block;">Revenus Totaux</span>
+                        <span style="font-size: 1.8em;">$ 4,250.00</span>
+                    </div>
+                    <div>
+                        <span style="color: var(--color-alert); font-weight: bold; display: block;">Dépenses Totales</span>
+                        <span style="font-size: 1.8em;">$ 3,120.50</span>
+                    </div>
+                    <div>
+                        <span style="color: var(--color-primary); font-weight: bold; display: block;">Flux de Trésorerie Net</span>
+                        <span style="font-size: 1.8em;">$ 1,129.50</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="card" style="grid-column: span 3;">
+                <h2><i class="fas fa-filter"></i> Outils et Filtres</h2>
+                <div class="filter-bar">
+                    <input type="text" placeholder="Rechercher par description ou montant...">
+                    <select>
+                        <option value="">Toutes les catégories</option>
+                        <option value="salaire">Salaire/Revenu</option>
+                        <option value="epicerie">Épicerie</option>
+                        <option value="logement">Logement</option>
+                        <option value="placements">Placements</option>
+                    </select>
+                    <button class="action-btn success" style="flex-shrink: 0;"><i class="fas fa-plus"></i> Nouvelle Transaction</button>
+                    <button class="action-btn secondary" style="flex-shrink: 0;"><i class="fas fa-download"></i> Exporter</button>
+                </div>
+            </section>
+
+            <section class="card" style="grid-column: span 3;">
+                <h2><i class="fas fa-table"></i> Historique Détaillé</h2>
+                <table class="transactions-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Description</th>
+                            <th>Catégorie</th>
+                            <th>Compte</th>
+                            <th>Montant</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2025-12-09</td>
+                            <td>Salaire du mois</td>
+                            <td><i class="fas fa-money-bill-wave"></i> Salaire</td>
+                            <td>Chèques Principal</td>
+                            <td class="credit">$ 2,500.00</td>
+                        </tr>
+                        <tr>
+                            <td>2025-12-08</td>
+                            <td>Épicerie IGA</td>
+                            <td><i class="fas fa-shopping-basket"></i> Épicerie</td>
+                            <td>Carte VISA TD</td>
+                            <td class="debit">-$ 145.50</td>
+                        </tr>
+                        <tr>
+                            <td>2025-12-05</td>
+                            <td>Transfert vers CELI</td>
+                            <td><i class="fas fa-piggy-bank"></i> Placements</td>
+                            <td>Chèques Principal</td>
+                            <td class="debit">-$ 500.00</td>
+                        </tr>
+                        <tr>
+                            <td>2025-12-01</td>
+                            <td>Paiement du loyer</td>
+                            <td><i class="fas fa-home"></i> Logement</td>
+                            <td>Chèques Principal</td>
+                            <td class="debit">-$ 1,200.00</td>
+                        </tr>
+                        <tr>
+                            <td>2025-11-28</td>
+                            <td>Remboursement Carte VISA</td>
+                            <td><i class="fas fa-credit-card"></i> Dette</td>
+                            <td>Chèques Principal</td>
+                            <td class="debit">-$ 750.90</td>
+                        </tr>
+                        <tr>
+                            <td>2025-11-25</td>
+                            <td>Revenu Side Hustle</td>
+                            <td><i class="fas fa-briefcase"></i> Autre Revenu</td>
+                            <td>Chèques Principal</td>
+                            <td class="credit">$ 1,750.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+        </main>
+    </div>
+
+</body>
+</html>
