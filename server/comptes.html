@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comptes - Mes Finances</title>
+    <title>Détail des Comptes Bancaires</title>
     <link rel="stylesheet" href="../styles/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -24,81 +24,66 @@
             <nav class="main-nav">
                 <ul>
                     <li><i class="fas fa-chart-line"></i> <a href="../index.html">Dashboard</a></li> 
-                    <li><i class="fas fa-wallet"></i> <a href="#" class="active-link">Comptes</a></li>
+                    <li><i class="fas fa-wallet"></i> <a href="comptes.html" class="active-link">Comptes</a></li>
                     <li><i class="fas fa-graduation-cap"></i> <a href="../styles/centre-apprentissage.html">Apprentissage</a></li>
                     <li><i class="fas fa-hand-holding-usd"></i> <a href="../dettes.html">Dettes & Stratégie</a></li>
                     <li><i class="fas fa-piggy-bank"></i> <a href="../placements.html">Placements</a></li>
-                    <li><i class="fas fa-exchange-alt"></i> <a href="#">Transactions</a></li>
-                    <li><i class="fas fa-bullseye"></i> <a href="#">Objectifs</a></li>
+                    <li><i class="fas fa-exchange-alt"></i> <a href="../transactions.html">Transactions</a></li>
+                    <li><i class="fas fa-bullseye"></i> <a href="../objectifs.html">Objectifs</a></li>
                 </ul>
             </nav>
+            <div class="bottom-menu">
+                <a href="#"><i class="fas fa-cog"></i> Paramètres</a>
+            </div>
         </aside>
 
-        <main class="content-grid" style="grid-template-columns: 2fr 1fr;">
+        <main class="content-grid" style="grid-template-columns: repeat(3, 1fr);">
             
-            <section class="card" style="grid-column: span 1;">
-                <h1 style="border-bottom: 2px solid var(--color-primary); padding-bottom: 15px; margin-bottom: 20px; color: var(--color-primary);">
-                    <i class="fas fa-wallet"></i> Détails des Comptes
+            <section class="card" style="grid-column: span 3; text-align: center; padding: 40px;">
+                <span style="font-size: 20px; color: var(--color-text);">Solde de Liquidité Total</span>
+                <h1 style="font-size: 60px; color: var(--color-primary); margin: 10px 0;">
+                    $ 11,299.60
                 </h1>
-
-                <h2 style="color: #6c757d; margin-top: 25px;">Comptes Courants et d'Épargne</h2>
-                <div class="account-list" style="margin-top: 15px;">
-                    <div class="account-item" style="border-bottom: 1px dashed #eee; padding: 10px 0; display: flex; justify-content: space-between;">
-                        <span><i class="fas fa-university"></i> Chèques RBC</span>
-                        <span class="value success" style="font-weight: bold;">$ 7,100.50</span>
-                    </div>
-                    <div class="account-item" style="border-bottom: 1px dashed #eee; padding: 10px 0; display: flex; justify-content: space-between;">
-                        <span><i class="fas fa-piggy-bank"></i> Épargne Mise de Fonds</span>
-                        <span class="value success" style="font-weight: bold;">$ 4,199.10</span>
-                    </div>
-                    <div class="account-item" style="padding: 10px 0; display: flex; justify-content: space-between; font-weight: bold;">
-                        <span>Total Liquidités</span>
-                        <span class="value primary-color">$ 11,299.60</span>
-                    </div>
-                </div>
-
-                <h2 style="color: #6c757d; margin-top: 35px;">Comptes d'Investissement</h2>
-                <div class="account-list" style="margin-top: 15px;">
-                    <div class="account-item" style="border-bottom: 1px dashed #eee; padding: 10px 0; display: flex; justify-content: space-between;">
-                        <span><i class="fas fa-chart-line"></i> CELI (Courtier A)</span>
-                        <span class="value success" style="font-weight: bold;">$ 35,000.00</span>
-                    </div>
-                    <div class="account-item" style="border-bottom: 1px dashed #eee; padding: 10px 0; display: flex; justify-content: space-between;">
-                        <span><i class="fas fa-user-tie"></i> REER (Employeur)</span>
-                        <span class="value success" style="font-weight: bold;">$ 25,000.00</span>
-                    </div>
-                    <div class="account-item" style="padding: 10px 0; display: flex; justify-content: space-between; font-weight: bold;">
-                        <span>Total Placements</span>
-                        <span class="value primary-color">$ 60,000.00</span>
-                    </div>
-                </div>
-
+                <span class="net-indicator success" style="font-size: 18px;">
+                    ↑ 1,200.00 $ (Ce mois-ci)
+                </span>
             </section>
 
             <section class="card" style="grid-column: span 1;">
-                <h2><i class="fas fa-database"></i> Récapitulatif</h2>
-                <div style="padding: 10px 0;">
-                    <p style="margin-bottom: 15px;">La valeur de vos comptes reflète vos actifs. La somme de vos comptes est votre **Valeur Nette** (avant déduction des dettes).</p>
-                    <table style="width: 100%; border-collapse: collapse;">
-                        <tr style="border-bottom: 1px solid #eee;">
-                            <td style="padding: 8px 0;">Total des Actifs</td>
-                            <td style="padding: 8px 0; text-align: right; font-weight: bold; color: var(--color-primary);">$ 71,299.60</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid #eee;">
-                            <td style="padding: 8px 0;">Dettes Totales</td>
-                            <td style="padding: 8px 0; text-align: right; font-weight: bold; color: var(--color-danger);">$ 8,500.00</td>
-                        </tr>
-                        <tr style="font-size: 1.2em; background-color: #f8f9fa;">
-                            <td style="padding: 10px 0;">**Valeur Nette**</td>
-                            <td style="padding: 10px 0; text-align: right; font-weight: bold; color: var(--color-primary);">$ 62,799.60</td>
-                        </tr>
-                    </table>
-                </div>
-
-                <h2 style="margin-top: 30px;"><i class="fas fa-tools"></i> Gestion</h2>
-                <button class="action-btn success" style="width: 100%; margin-top: 10px;"><i class="fas fa-plus"></i> Ajouter un Nouveau Compte</button>
-                <button class="action-btn info" style="width: 100%; margin-top: 10px;"><i class="fas fa-sync-alt"></i> Synchroniser les Données</button>
+                <h2><i class="fas fa-chart-bar"></i> Dépenses par Catégorie</h2>
+                <ul style="list-style: none; padding: 0;">
+                    <li>Épicerie: $ 450.00</li>
+                    <li>Logement: $ 1200.00</li>
+                    <li>Transport: $ 150.00</li>
+                </ul>
+                <a href="../transactions.html" class="view-all-button">Voir toutes les transactions</a>
             </section>
+
+            <section class="card" style="grid-column: span 2;">
+                <h2><i class="fas fa-university"></i> Comptes Chèques et Épargne</h2>
+                <table style="width: 100%; border-collapse: collapse; text-align: left;" class="institutions-table">
+                    <thead>
+                        <tr style="border-bottom: 2px solid #EAECEE;">
+                            <th style="padding: 10px 0;">Nom du Compte</th>
+                            <th style="padding: 10px 0;">Institution</th>
+                            <th style="padding: 10px 0;">Solde</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 10px 0;">Compte Chèques Principal</td>
+                            <td style="padding: 10px 0;">BNC</td>
+                            <td style="padding: 10px 0;">$ 3,500.00</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px 0;">Compte Épargne Mise de Fonds</td>
+                            <td style="padding: 10px 0;">BNC</td>
+                            <td style="padding: 10px 0;">$ 7,799.60</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
         </main>
     </div>
 
