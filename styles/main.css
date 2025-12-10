@@ -29,8 +29,8 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: var(--color-background-dark); /* Fond le plus sombre */
-    color: var(--color-text-primary); /* Texte par défaut clair */
+    background-color: var(--color-background-dark);
+    color: var(--color-text-primary);
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -55,7 +55,7 @@ a:hover {
 }
 
 .debit {
-    color: var(--color-alert); /* Utilisé pour les débits/dépenses */
+    color: var(--color-alert); 
 }
 
 
@@ -68,7 +68,7 @@ a:hover {
     justify-content: space-between;
     align-items: center;
     padding: 20px 30px;
-    background-color: var(--color-sidebar-background); /* L'en-tête partage le fond de la sidebar */
+    background-color: var(--color-sidebar-background);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     border-bottom: 1px solid var(--color-border);
 }
@@ -91,7 +91,7 @@ a:hover {
 
 .sync-button {
     background-color: var(--color-primary);
-    color: var(--color-background-dark); /* Texte sombre sur bouton clair */
+    color: var(--color-background-dark);
     padding: 10px 15px;
     border-radius: 6px;
     font-weight: bold;
@@ -151,10 +151,11 @@ a:hover {
 }
 
 .main-nav a:hover {
-    background-color: #383838; /* Gris foncé au survol */
+    background-color: #383838;
     color: var(--color-primary);
 }
 
+/* CORRECTION ALIGNEMENT DES ICÔNES */
 .main-nav i {
     margin-right: 15px;
     width: 20px;
@@ -194,11 +195,11 @@ a:hover {
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     padding: 30px;
-    background-color: var(--color-background-medium); /* Fond intermédiaire */
+    background-color: var(--color-background-medium);
 }
 
 .card {
-    background-color: var(--color-card-background); /* Fond des cartes */
+    background-color: var(--color-card-background);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
@@ -231,7 +232,7 @@ a:hover {
 /* ======================================= */
 
 .action-card {
-    grid-column: span 3; /* Utilise toute la largeur sur la première ligne */
+    grid-column: span 3;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -276,12 +277,26 @@ a:hover {
 }
 
 /* ======================================= */
-/* 📊 GRAPHIQUES ET LÉGENDES */
+/* 📊 GRAPHIQUES ET LÉGENDES (PASTILLES) */
 /* ======================================= */
 
 .asset-legend li {
     color: var(--color-text-secondary);
+    /* S'assure que la pastille et le texte sont sur la même ligne */
+    display: flex; 
+    align-items: center;
 }
+
+.asset-legend span {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%; /* PASTILLE RONDE */
+    margin-right: 8px;
+    /* Ajustement de l'alignement vertical pour que la pastille soit bien centrée */
+    flex-shrink: 0; 
+}
+
 
 /* ======================================= */
 /* 🚀 BOUTONS VOIR TOUT */
