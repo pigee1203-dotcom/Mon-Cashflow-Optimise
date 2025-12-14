@@ -61,6 +61,52 @@ app.post('/api/exchange_public_token', async (req, res) => {
 
 
 // 5. Lancement du Serveur
+// ... (Le code existant pour create_link_token et exchange_public_token est ici) ...
+
+// -----------------------------------------------------------
+// 🌟 NOUVEL ENDPOINT : RÉCUPÉRATION DES DONNÉES DU DASHBOARD
+// -----------------------------------------------------------
+app.get('/api/dashboard_data', async (req, res) => {
+    // ⚠️ Attention : Ces données sont simulées pour le test !
+    const mockData = {
+        netWorth: 71299.60,
+        netIndicator: 1.25, 
+        assetSummary: {
+            chequesEpargne: 11299.60,
+            investissements: 60000.00
+        },
+        debt: {
+            creditUtilization: 12,
+            creditLine: 8500.00
+        },
+        assetAllocation: [
+            { label: 'Actions', value: 30, color: '#66b3ff' },
+            { label: 'Obligations', value: 45, color: '#f59e0b' },
+            { label: 'Liquidités', value: 20, color: '#10b981' },
+            { label: 'Autres', value: 5, color: '#ef4444' }
+        ],
+        budget: {
+            revenus: 4500.00,
+            depenses: 3120.50,
+            epargneNette: 1379.50
+        },
+        recentActivity: [
+            { date: '2025-12-09', description: 'Salaire', amount: 250.00, type: 'success' },
+            { date: '2025-12-08', description: 'Épicerie', amount: -45.50, type: 'debit' },
+            { date: '2025-12-05', description: 'Transfert CELI', amount: -500.00, type: 'debit' }
+        ],
+        objectiveProgress: {
+            cible: 30000.00,
+            actuel: 14500.00,
+            description: 'Mise de Fonds (Maison)'
+        }
+    };
+    
+    console.log("Données du dashboard simulées envoyées.");
+    res.json(mockData);
+});
+
+// 5. Lancement du Serveur
 app.listen(PORT, () => {
     console.log(`Serveur Back-end démarré sur le port ${PORT}`);
 });
