@@ -5,6 +5,8 @@
 
 // 1. Initialisation du Serveur et des Dépendances
 const express = require('express');
+const cors = require('cors'); // AJOUTEZ CETTE LIGNE
+app.use(cors({ origin: 'https://pigee1203-dotcom.github.io' })); // AJOUTEZ CETTE LIGNE
 const bodyParser = require('body-parser');
 const app = express();
 const PORT = process.env.PORT || 8080; 
