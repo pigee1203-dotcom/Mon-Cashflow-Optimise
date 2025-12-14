@@ -5,21 +5,17 @@
 
 // 1. Initialisation du Serveur et des Dépendances
 const express = require('express');
-const cors = require('cors'); // AJOUTEZ CETTE LIGNE
-app.use(cors({ origin: 'https://pigee1203-dotcom.github.io' })); // AJOUTEZ CETTE LIGNE
+const cors = require('cors');
 const bodyParser = require('body-parser');
+require('dotenv').config();
+
 const app = express();
-const PORT = process.env.PORT || 8080; 
+const PORT = process.env.PORT || 8080;
 
-// --- ATTENTION SÉCURITÉ : Les secrets doivent venir d'ici ---
-// Les vraies clés d'API Plaid_Client_ID et Plaid_Secret 
-// NE SONT PAS DANS CE FICHIER. Elles sont injectées via 
-// les variables d'environnement de l'hébergeur (process.env.XXX).
-// -----------------------------------------------------------
-
-
-// 2. Middleware
+// Middleware
+app.use(cors({ origin: 'https://pigee1203-dotcom.github.io' }));
 app.use(bodyParser.json());
+
 
 // 3. Endpoint pour créer un "Link Token" (nécessaire pour Plaid)
 // C'est la première étape du processus de connexion bancaire
