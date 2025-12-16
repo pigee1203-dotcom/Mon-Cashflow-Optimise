@@ -118,7 +118,7 @@ a:hover {
 }
 
 /* ======================================= */
-/* 🧭 ASIDE (Barre Latérale) */
+/* 🧭 ASIDE (Barre Latérale) - MODIFIÉ */
 /* ======================================= */
 
 .sidebar {
@@ -138,39 +138,37 @@ a:hover {
 }
 
 .main-nav li {
-    margin: 0;
+    margin-bottom: 10px;
+    padding: 0 15px;
 }
 
 .main-nav a {
     display: flex;
     align-items: center;
-    padding: 12px 30px;
+    padding: 12px 20px;
     color: var(--color-text-primary);
+    text-decoration: none;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    background-color: transparent;
     font-weight: 500;
-    transition: background-color 0.2s, color 0.2s;
 }
 
 .main-nav a:hover {
-    background-color: #383838;
+    background-color: rgba(255, 255, 255, 0.1);
     color: var(--color-primary);
 }
 
-/* CORRECTION ALIGNEMENT DES ICÔNES */
+.main-nav a.active-link {
+    background-color: rgba(102, 179, 255, 0.2);
+    color: var(--color-primary);
+}
+
 .main-nav i {
     margin-right: 15px;
+    font-size: 18px;
     width: 20px;
     text-align: center;
-}
-
-.active-link {
-    background-color: #383838; 
-    border-left: 4px solid var(--color-primary); 
-    padding-left: 26px !important;
-    color: var(--color-primary) !important;
-}
-
-.active-link:hover {
-    background-color: #383838 !important;
 }
 
 .bottom-menu {
@@ -271,6 +269,11 @@ a:hover {
     color: var(--color-background-dark);
 }
 
+.action-btn.link-plaid {
+    background-color: #6c757d;
+    color: #ffffff;
+}
+
 .action-btn:hover {
     opacity: 0.9;
     transform: translateY(-1px);
@@ -282,7 +285,6 @@ a:hover {
 
 .asset-legend li {
     color: var(--color-text-secondary);
-    /* S'assure que la pastille et le texte sont sur la même ligne */
     display: flex; 
     align-items: center;
 }
@@ -291,9 +293,8 @@ a:hover {
     display: inline-block;
     width: 12px;
     height: 12px;
-    border-radius: 50%; /* PASTILLE RONDE */
+    border-radius: 50%;
     margin-right: 8px;
-    /* Ajustement de l'alignement vertical pour que la pastille soit bien centrée */
     flex-shrink: 0; 
 }
 
